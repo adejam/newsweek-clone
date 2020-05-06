@@ -2,7 +2,7 @@
 
 > The main objective of this project is to use Bootstrap framework to build a responsive webpage by cloning [Newsweek Homepage](https://www.newsweek.com/) to demostrate the use of HTML and CSS framework in building a webpage.
 
-![screenshot](/images/screenshot.png)
+![screenshot](/app_screenshot.png)
 
 The project uses Bootstrap framework. CSS flexbox in conjunction with CSS float property is used for effective positioning of the elements.CSS Media Queries for responsive design.
 

@@ -1,0 +1,144 @@
+/* header feature */
+.header,
+.genericon_menu {
+  z-index: 10;
+}
+
+.head_cont {
+  max-width: 1310px;
+}
+
+.login_button {
+  background-color: transparent;
+}
+
+.login_button,
+.subscribe_button {
+  line-height: 14px;
+  font-size: 14px;
+  text-transform: uppercase;
+  display: inline-block;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  cursor: pointer;
+}
+
+.login_button,
+.subscribe_button,
+.weather,
+.nav_ul {
+  font-weight: bold;
+}
+
+.subscribe_button,
+.nav_bar,
+.search_input {
+  background-color: white;
+}
+
+.subscribe_button {
+  color: #f72210;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-left: 10px;
+}
+
+#api.weather {
+  top: 12px;
+}
+
+.weather {
+  top: 10px;
+  color: #fff;
+  line-height: 34px;
+  left: 20px;
+}
+
+.weather_picture {
+  display: inherit;
+}
+
+.weather_icon {
+  vertical-align: text-top;
+  width: 24px;
+  height: 24px;
+}
+
+.weather_country {
+  padding-left: 8px;
+}
+
+.wc_img {
+  vertical-align: baseline;
+}
+
+.header_middle {
+  background-color: #f72210;
+  padding: 15px;
+}
+
+.brand svg {
+  fill: white;
+  width: 132px;
+  height: 20px;
+}
+
+.genericon {
+  font-size: 26px;
+  vertical-align: top;
+}
+
+.genericon_menu {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  height: 50px;
+}
+
+.genericon_menu span {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.genericon_menu span,
+.genericon_menu::before,
+.genericon_menu::after {
+  display: block;
+  width: 24px;
+  height: 4px;
+  background-color: #fb9a94;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.genericon_menu::before,
+.genericon_menu::after {
+  content: "";
+}
+
+.nav_bar {
+  border-bottom: 2px solid #f4f5f6;
+  padding: 15px 0;
+}
+
+.search_label {
+  background: url(https://g.newsweek.com/www/images/icon-search-glass.svg) center/contain no-repeat white;
+  width: 20px;
+  height: 20px;
+  clip: auto;
+  font-size: 0;
+  overflow: hidden;
+}
+
+.search_input {
+  color: rgba(0, 0, 0, 0.55);
+  vertical-align: middle;
+  font-size: 16px;
+  height: 20px;
+  width: 175px;
+}
+
+.nav_ul {
+  font-size: 17px;
+  line-height: 24px;
+}

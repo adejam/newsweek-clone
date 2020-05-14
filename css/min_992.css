@@ -1,4 +1,3 @@
-
 .header_top {
   height: 95px;
   padding: 20px 10px 15px;
@@ -89,4 +88,9 @@
 
 .nav_list a:hover {
   color: #f72210;
+}
+
+.main {
+  padding-left: 30px;
+  padding-right: 30px;
 }

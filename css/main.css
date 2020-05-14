@@ -4,10 +4,6 @@
   z-index: 10;
 }
 
-.head_cont {
-  max-width: 1310px;
-}
-
 .login_button {
   background-color: transparent;
 }
@@ -16,8 +12,6 @@
 .subscribe_button {
   line-height: 14px;
   font-size: 14px;
-  text-transform: uppercase;
-  display: inline-block;
   padding-top: 6px;
   padding-bottom: 6px;
   cursor: pointer;
@@ -25,19 +19,38 @@
 
 .login_button,
 .subscribe_button,
+.title_block_thick,
+.title_block_light,
+.category,
+.byline,
+.n_title {
+  text-transform: uppercase;
+}
+
+.login_button,
+.subscribe_button,
 .weather,
-.nav_ul {
+.nav_ul,
+.title_block_thick,
+.title_block_light,
+.category,
+.vs,
+.n_title,
+.lk,
+.lk_5,
+.sub_feat {
   font-weight: bold;
 }
 
 .subscribe_button,
 .nav_bar,
-.search_input {
+.search_input,
+.main,
+.sponsor .info {
   background-color: white;
 }
 
 .subscribe_button {
-  color: #f72210;
   padding-left: 3px;
   padding-right: 3px;
   margin-left: 10px;
@@ -80,6 +93,11 @@
 .brand svg {
   fill: white;
   width: 132px;
+}
+
+.brand svg,
+.search_label,
+.search_input {
   height: 20px;
 }
 
@@ -124,21 +142,363 @@
 .search_label {
   background: url(https://g.newsweek.com/www/images/icon-search-glass.svg) center/contain no-repeat white;
   width: 20px;
-  height: 20px;
   clip: auto;
   font-size: 0;
-  overflow: hidden;
 }
 
 .search_input {
   color: rgba(0, 0, 0, 0.55);
   vertical-align: middle;
-  font-size: 16px;
-  height: 20px;
   width: 175px;
 }
 
+.search_input,
+.title_block_thick,
+.title_block_light,
+.ms_h4 {
+  font-size: 16px;
+}
+
 .nav_ul {
-  font-size: 17px;
   line-height: 24px;
+  font-size: 17px;
+}
+
+.main {
+  padding-top: 20px;
+}
+
+.title_block_thick,
+.title_block_light {
+  padding-bottom: 11px;
+}
+
+.title_block_thick,
+.title_block_light,
+.category {
+  line-height: 16px;
+}
+
+.title_block_light {
+  color: rgba(3, 3, 3, 0.4);
+}
+
+.title_block_thick {
+  color: rgba(12, 11, 11, 0.8);
+}
+
+.fs_article {
+  padding-bottom: 20px;
+}
+
+.img_wrap {
+  margin-bottom: 10px;
+}
+
+.img_wrap,
+.sponsor_wrap {
+  min-height: 33px;
+}
+
+.category,
+.culture_item .summary,
+.n_title,
+.lk_5 {
+  font-size: 15px;
+}
+
+.category {
+  padding: 8px 15px 9px;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.subscribe_button,
+.img_wrap .category {
+  color: #f72210;
+}
+
+.img_div picture {
+  padding-bottom: 66.7506%;
+}
+
+.feat_a:hover,
+.ms_h4_a:hover {
+  text-decoration: underline #f72210;
+}
+
+.sponsor {
+  padding-bottom: 30px;
+}
+
+.sponsor .category {
+  color: #3581f4;
+}
+
+.si_1 {
+  background-image: url(https://d.newsweek.com/en/full/1586483/turkey-photo.jpg?w=500&h=333&f=dcc1d82e5c2fd542facec02188d3b4c3);
+}
+
+.si_2 {
+  background-image: url(https://d.newsweek.com/en/full/1575945/cybersecurity-vantage-hp-sponsor.jpg?w=500&h=333&f=ac517642217c0d9cec695be60008ce2a);
+}
+
+.si_3 {
+  background-image: url(https://d.newsweek.com/en/full/1572014/worlds-best-hospitals-2020.png?w=500&h=333&f=c871e2709e79f9ba030be976797f7aa2);
+}
+
+.si_4 {
+  background-image: url(https://d.newsweek.com/en/full/1583954/branksome-hall-asia.jpg?w=500&h=333&f=c94bdca0f8cc3fa79707cc9703c1e236);
+}
+
+.si_5 {
+  background-image: url(https://d.newsweek.com/en/full/1568509/newsweek-amplify.png?w=500&h=333&f=98c0ebfc554597997a0de3bd6159812a);
+}
+
+.si_6 {
+  background-image: url(https://d.newsweek.com/en/full/1588353/shutterstock-679600114.jpg?w=500&h=333&f=b85576b9d142c87305dc5657b6360b1b);
+}
+
+.si_7 {
+  background-image: url(https://d.newsweek.com/en/full/1579322/wheaton-college-massachusetts.jpg?w=500&h=333&f=88f8ca5b2a4cb233d52b78eebba24e7a);
+}
+
+.si_8 {
+  background-image: url(https://d.newsweek.com/en/full/1579710/poznan-university-technology.jpg?w=500&h=333&l=0&t=0&f=6d47c0c5bb989706beee04c7bdf8b255);
+}
+
+.si_9 {
+  background-image: url(https://d.newsweek.com/en/full/1573607/hkbu-school-business.png?w=500&h=333&f=e8a763290d615492fbbab71e1f8e07fc);
+}
+
+.si_10 {
+  background-image: url(https://d.newsweek.com/en/full/1588123/nw-food-medicine-sponsored.jpg?w=500&h=333&f=03bfa19e4e38b9de86f3c778fd4c3852);
+}
+
+.si_11 {
+  background-image: url(https://d.newsweek.com/en/full/1587568/infection-prevention-products-banner.jpg?w=500&h=333&f=c96d696a017681c45d2f464a2ae0e23d);
+}
+
+.sponsor_img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-bottom: 66.75%;
+}
+
+.sponsor .info {
+  border: 1px solid #e6e6e6;
+  padding: 20px;
+}
+
+.culture_stories {
+  padding: 10px 0;
+}
+
+.culture_items {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.culture_item {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.laz {
+  padding-bottom: 100%;
+}
+
+.lazyside {
+  background-color: #f0f0f0;
+}
+
+.tags {
+  font: 300 13px/20px inherit;
+  color: #272727;
+}
+
+.tags a {
+  background-color: #c2d4d7;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.culture_item .info {
+  padding: 15px 0 20px;
+}
+
+.culture_item .title {
+  color: #272727;
+  font: 20px;
+  line-height: 22px;
+  margin-bottom: 10px;
+}
+
+.culture_item .summary {
+  line-height: 20px;
+  color: rgba(39, 39, 39, 0.5);
+  margin-bottom: 10px;
+}
+
+.ms_article {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.ms_article,
+.sub_feat_li {
+  border-top: 1px solid #ddd;
+}
+
+.ms_img_div {
+  width: 95px;
+  margin-right: 15px;
+}
+
+.sub_feat,
+.byline {
+  font-size: 14px;
+}
+
+.sub_feat {
+  line-height: 20px;
+  color: black;
+  margin-bottom: 30px;
+}
+
+.sub_feat li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.sub_feat_li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.subfeat_a:hover {
+  color: #f72210;
+}
+
+.headshot {
+  border-radius: 50%;
+  width: 63px;
+  height: 63px;
+  background: url(https://g.newsweek.com/www/images/opinion-headshot-bg.png) center no-repeat #f72210;
+}
+
+.headshot_a {
+  height: 100%;
+}
+
+.byline {
+  line-height: 21px;
+  color: #555;
+  margin-top: 4px;
+}
+
+.debate_item_top {
+  border-top: 4px solid #f92859;
+}
+
+.debate_item_b {
+  border-top: 4px solid #1c87fb;
+}
+
+.debate_img {
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  max-width: inherit;
+}
+
+.debate .byline::before {
+  top: 12px;
+}
+
+.debate .byline::after {
+  top: 15px;
+}
+
+.debate .byline::before,
+.debate .byline::after {
+  content: "";
+  display: block;
+  background-color: #d9d9d9;
+  height: 1px;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.f1 {
+  padding-top: 4px;
+}
+
+.debate .headshot {
+  padding-right: 4px;
+}
+
+.vs {
+  width: 40px;
+  height: 40px;
+  background-color: #000;
+  color: #d6d6d6;
+  border-radius: 50%;
+  font-size: 14px;
+  line-height: 40px;
+  margin: 14px auto 18px;
+}
+
+.newsletter {
+  max-width: 300px;
+  margin: 0 auto 30px;
+  border: 1px solid #e5e5e5;
+  background-color: #f4f5f6;
+  padding: 20px;
+}
+
+.n_title,
+.lk {
+  margin-bottom: 15px;
+}
+
+.n_title {
+  line-height: 17px;
+}
+
+.lk {
+  padding: 10px 10px 10px 12px;
+  font-size: 18px;
+  background-color: #666;
+}
+
+.newsletter .lk {
+  margin-bottom: 10px;
+}
+
+.lk::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  margin-left: 10px;
+  background: url(https://g.newsweek.com/www/images/icon-arrow-right.svg) center/contain no-repeat;
+}
+
+.ms_h4 .lk {
+  line-height: 18px;
+}
+
+.lk_5 {
+  color: #333;
+  line-height: 15px;
+}
+
+.icon_n {
+  flex: none;
+  width: 29px;
+  height: 28px;
+  background: url(https://g.newsweek.com/www/images/logo-n1.svg) center/contain no-repeat #f72210;
+  margin-right: 10px;
 }

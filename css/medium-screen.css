@@ -2,3 +2,38 @@ body {
   font-size: 15px;
   line-height: 20px;
 }
+
+h3 {
+  font-size: 19px;
+  line-height: 22px;
+}
+
+.top_story_div {
+  /* display: flex; */
+}
+
+.culture_items {
+  display: flex;
+}
+
+.culture_item {
+  flex: 1;
+}
+
+.ms_img_div {
+  margin-bottom: 10px;
+}
+
+h4 {
+  font-size: 22px;
+  line-height: 22px;
+}
+
+.s_h {
+  position: sticky;
+  top: -50%;
+}
+
+.d_min768_none {
+  display: none;
+}

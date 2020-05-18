@@ -191,12 +191,14 @@
   padding-bottom: 20px;
 }
 
-.img_wrap {
+.img_wrap,
+.e_wrap {
   margin-bottom: 10px;
 }
 
 .img_wrap,
-.sponsor_wrap {
+.sponsor_wrap,
+.e_wrap {
   min-height: 33px;
 }
 
@@ -220,7 +222,8 @@
 
 .subscribe_button,
 .img_wrap .category,
-.mag_cat {
+.mag_cat,
+.e_cat {
   color: #f72210;
 }
 
@@ -537,7 +540,8 @@
   background-color: #d9d9d9;
 }
 
-.magazine h5 {
+.magazine h5,
+.editors_pick {
   margin-bottom: 30px;
 }
 
@@ -563,4 +567,8 @@
 
 .mag_span {
   margin-right: 7px;
+}
+
+.editor {
+  margin-bottom: 20px;
 }

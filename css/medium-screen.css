@@ -8,10 +8,6 @@ h3 {
   line-height: 22px;
 }
 
-.top_story_div {
-  /* display: flex; */
-}
-
 .culture_items {
   display: flex;
 }
@@ -25,7 +21,7 @@ h3 {
 }
 
 h4 {
-  font-size: 22px;
+  font-size: 18px;
   line-height: 22px;
 }
 
@@ -36,4 +32,54 @@ h4 {
 
 .d_min768_none {
   display: none;
+}
+
+.magazine {
+  margin-bottom: 30px;
+}
+
+.magazine .n-title {
+  border-bottom: 1px solid #d9d9d9;
+  padding-bottom: 8px;
+}
+
+.mag_row {
+  display: flex;
+}
+
+h5 {
+  font-size: 17px;
+  line-height: 18px;
+}
+
+.magazine h5 {
+  margin-bottom: 0;
+}
+
+.mag_pic {
+  display: block;
+  position: relative;
+  padding-bottom: 100%;
+  overflow: hidden;
+}
+
+.mag_img {
+  transform: translate(-50%, 0%);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: auto;
+  height: 100%;
+  max-width: inherit;
+}
+
+.mag_bottom {
+  padding-top: 30px;
+}
+
+.bs_pic {
+  padding-bottom: 110%;
+  display: block;
+  position: relative;
+  overflow: hidden;
 }

@@ -96,8 +96,7 @@ a:hover {
 picture {
   display: block;
   position: relative;
-
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 img {
@@ -228,6 +227,10 @@ h6 {
 
 .f_r {
   float: right;
+}
+
+.fn {
+  flex: none;
 }
 
 .c_b {

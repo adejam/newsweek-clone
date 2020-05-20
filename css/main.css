@@ -761,26 +761,6 @@
   fill: #f72210;
 }
 
-.facebook::before {
-  content: "\f203";
-}
-
-.twitter::before {
-  content: "\f202";
-}
-
-.instagram::before {
-  content: "\f215";
-}
-
-.tumblr::before {
-  content: "\f214";
-}
-
-.linkedin::before {
-  content: "\f207";
-}
-
 .footer_links {
   flex-wrap: wrap;
   padding-top: 6px;

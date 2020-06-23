@@ -20,11 +20,11 @@
             <div class="w_half hd_div">
               <span class="header_date c_w d-lg-block">Wed, May 07, 2020</span>
             </div>
-            <div class="w_half hb_div d-flex justify-content-end align-items-center">
+            <div class="w_half hb_div d_flex justify-content-end align-items-center">
               <button type="button" class="d_ib c_p pos_rel login_button c_w">Login</button>
               <button type="button" class="d_ib c_p pos_rel subscribe_button">Subscribe</button>
             </div>
-            <div id="api" class="weather pos_abs">
+            <div id="api" class="weather pos_abs d-none d-sm-block">
               <a href="#">
                 <picture class="weather_picture">
                   <img
@@ -1776,10 +1776,10 @@
             </div>
             <div>
               <div class="newsletter">
-                <div class="n_title d_flex align-items-center">
+                <h2 class="n_title d_flex align-items-center">
                   <span class="icon_n d_block"></span>
                   SIGN UP FOR OUR NEWSLETTER
-                </div>
+                </h2>
                 <a href="#" class="d_ib lk c_w">Sign Up</a>
                 <br />
                 <a href="lk_5">
@@ -1901,13 +1901,13 @@
         </div>
       </div>
       <div class="extra">
-        <div class="in_magazine">
+        <section class="in_magazine">
           <div>
             <div class="magazine">
-              <div class="n_title justify-content-center align-items-center d_flex">
+              <h2 class="n_title justify-content-center align-items-center d_flex">
                 <span class="icon_n"></span>
                 in the magazine
-              </div>
+              </h2>
               <div class="row mag_row align-items-end">
                 <div class="col-md-3">
                   <div class="pos_rel">
@@ -1917,6 +1917,7 @@
                           <img
                             src="https://d.newsweek.com/en/full/1589808/may-22-2020-cover.jpg?w=360&h=480&q=90&f=2ec2ef2650429fbfb36fe7bb86d88aee"
                             alt="gh"
+                            class="w_full"
                           />
                         </picture>
                       </a>
@@ -1938,7 +1939,7 @@
                             <img
                               src="https://d.newsweek.com/en/full/1588266/fe-privacy-banner.jpg?w=466&h=311&l=52&t=49&q=90&f=1b2f415f5697889730c90acdc79c2a66"
                               alt="i"
-                              class="mag_img"
+                              class="mag_img w_full"
                             />
                           </picture>
                         </a>
@@ -1960,7 +1961,7 @@
                             <img
                               src="https://d.newsweek.com/en/full/1587245/fe-privacy-qa-crystal-watson-03.jpg?w=466&h=311&l=60&t=54&q=90&f=0e2bba98e17d1f385b30ef3813e485e4"
                               alt="i"
-                              class="mag_img"
+                              class="mag_img w_full"
                             />
                           </picture>
                         </a>
@@ -1982,7 +1983,7 @@
                             <img
                               src="https://d.newsweek.com/en/full/1288852/kevin-hassett.jpg?w=466&h=311&q=90&f=5cde11771e7ef9e36e681dc35b181fe4"
                               alt="i"
-                              class="mag_img"
+                              class="mag_img w_full"
                             />
                           </picture>
                         </a>
@@ -2008,7 +2009,7 @@
                         <img
                           src="https://d.newsweek.com/en/full/1586523/per-fastcash.jpg?w=466&h=311&l=50&t=47&q=90&f=92710e3df87d73b3527948471d73da7e"
                           alt="i"
-                          class="mag_img"
+                          class="mag_img w_full"
                         />
                       </picture>
                     </a>
@@ -2030,7 +2031,7 @@
                         <img
                           src="https://d.newsweek.com/en/full/1587215/hor-thentheystoppedtalking-banner.jpg?w=466&h=311&l=52&t=37&xy=626-0-2500-1251&f=bffe19dbb43dd3a8159b0fa8bbe3c420"
                           alt="i"
-                          class="mag_img"
+                          class="mag_img w_full"
                         />
                       </picture>
                     </a>
@@ -2052,7 +2053,7 @@
                         <img
                           src="https://d.newsweek.com/en/full/1587154/cul-ps-weiner.jpg?w=466&h=311&l=47&t=34&q=90&f=a0d1b5c34a1155df6f8d9a5271176478"
                           alt="i"
-                          class="mag_img"
+                          class="mag_img w_full"
                         />
                       </picture>
                     </a>
@@ -2077,7 +2078,7 @@
                             <img
                               src="https://d.newsweek.com/en/full/1589370/salute-stars.jpg?w=480&h=320&l=50&t=59&q=90&f=076fac83d1318552bb891a97c9ed2798"
                               alt="s"
-                              class="mag_img"
+                              class="mag_img w_full"
                             />
                           </picture>
                         </div>
@@ -2092,13 +2093,13 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="editors_pick">
+        </section>
+        <section class="editors_pick">
           <div>
-            <div class="n_title justify-content-center align-items-center d_flex">
+            <h2 class="n_title justify-content-center align-items-center d_flex">
               <span class="icon_n"></span>
               editor's pick
-            </div>
+            </h2>
             <div class="editors row">
               <article class="col-lg-3 col-md-6 editor">
                 <div class="e_wrap pos_rel">
@@ -2321,8 +2322,9 @@
               </article>
             </div>
           </div>
-        </div>
-        <div class="section_picks">
+        </section>
+        <section class="section_picks">
+          <h2 class="d-none">Section Picks</h2>
           <div>
             <div class="section">
               <div class="title_block_light block_title">
@@ -2963,7 +2965,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
       <div class="subscribe_block">
         <div class="row">

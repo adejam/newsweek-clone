@@ -1,0 +1,52 @@
+
+@media (max-width: 991px) {
+  .hd_div {
+    display: none;
+  }
+
+  .hb_div {
+    position: absolute;
+    top: 12px;
+    right: 80px;
+  }
+
+  #api.weather {
+    top: 8px;
+    left: 170px;
+  }
+
+  .nav_bar {
+    box-shadow: rgba(0, 0, 0, 0.1) -2px 0 2px;
+    transform: translate(100%, 0%);
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 220px;
+    height: 100vh;
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .d_max767_none {
+    display: none;
+  }
+
+  .more_stories {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .weather_country {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hb_div {
+    right: 50px;
+  }
+}

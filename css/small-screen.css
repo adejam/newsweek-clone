@@ -1,0 +1,37 @@
+.login_button,
+.subscribe_button {
+  font-size: 18px;
+}
+
+.login_button {
+  padding-right: 2px;
+}
+
+.subscribe_button,
+.subscribe_block_button {
+  padding-left: 10px;
+  padding-right: 8px;
+}
+
+.subscribe_button::after {
+  width: 8px;
+  height: 14px;
+  content: "";
+  display: inline-block;
+  margin-left: 10px;
+  background: url(https://g.newsweek.com/www/images/icon-arrow-right-red.svg) center / contain no-repeat;
+}
+
+.subscribe_block_button::after {
+  background: url(https://g.newsweek.com/www/images/icon-arrow-right.svg) center / contain no-repeat;
+}
+
+.genericon_menu {
+  width: 74px;
+}
+
+.genericon_menu span,
+.genericon_menu::before,
+.genericon_menu::after {
+  width: 30px;
+}

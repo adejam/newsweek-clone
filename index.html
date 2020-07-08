@@ -1,0 +1,3179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Newsweek Clone</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link type="text/css" rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <div>
+      <header class="header t_0 l_0">
+        <div class="container-fluid pos_rel no_p cont">
+          <div class="header_top pos_rel zi_2 justify-content-between align-items-end d-flex">
+            <div class="w_half hd_div">
+              <span class="header_date c_w d-lg-block">Wed, May 07, 2020</span>
+            </div>
+            <div class="w_half hb_div d_flex justify-content-end align-items-center">
+              <button type="button" class="d_ib c_p pos_rel login_button c_w">Login</button>
+              <button type="button" class="d_ib c_p pos_rel subscribe_button">Subscribe</button>
+            </div>
+            <div id="api" class="weather pos_abs d-none d-sm-block">
+              <a href="#">
+                <picture class="weather_picture">
+                  <img
+                    src="https://g.newsweek.com/img/weather/33.png"
+                    alt="fair"
+                    class="weather_icon no_m"
+                  />
+                </picture>
+                &nbsp;28°
+                <span class="weather_country">
+                  Lagos, NG&nbsp;&nbsp;
+                  <picture class="weather_picture">
+                    <img
+                      src="https://g.newsweek.com/img/weather/ic-white-arrow.png"
+                      alt="ij"
+                      class="wc_img"
+                    />
+                  </picture>
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="header_middle pos_rel">
+            <a href="#" class="brand">
+              <svg
+                class="d_block"
+                version="1.1"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                viewBox="0 0 395.6 60"
+                style="enable-background:new 0 0 395.6 60;"
+                xml:space="preserve"
+              >
+                <g>
+                  <path
+                    class="st0"
+                    d="M58.7,10.8h-5.6v48.3H42.8l-25.1-33v22.1h5.6v10.8H0V48.3h5.6V10.8H0V0h17.6L41,30.7V10.8h-5.6V0h23.2 L58.7,10.8L58.7,10.8z M95.8,38c0,0.9,0,1.8-0.1,2.7H70.3c-0.7,8.2,2.4,10.6,7.1,10.6c3.9,0,6.9-2.6,6.9-6.6h11 c-0.3,7.2-4,15.4-18.5,15.4c-14.5,0-21.3-10.5-21.3-22.1c0-10.5,7-21.6,21-21.6C89.9,16.3,95.8,25.6,95.8,38 M159,27.3h-3.7 l-9.4,31.8h-12.5l-5.9-17.4l-5.3,17.4h-12.8L98.8,27.4h-3.7V16.6h22.1v10.7h-5.6l5.8,16.9l7.6-27.6h6.8l9.3,27.6l5-16.9h-5.6V16.6 H159L159,27.3L159,27.3z M174.5,27.8c0,1.5,1.2,2.5,5.4,3.9l6,2c5.5,1.8,12.1,5.9,12.1,13.4c0,8.8-6.6,13-14.7,13 c-6.5,0-11.5-3.2-12.9-4.6V59h-10.8V44.4h10.6c0.3,4.8,4.6,7.3,8.5,7.3c3.2,0,4.7-1.4,4.7-3c0-2-1.2-3.1-6.5-4.8l-5.3-1.8 c-5.4-1.7-11.4-5.7-11.4-12.8c0-8.7,7.7-13.1,14.3-13.1c6.8,0,10.1,1.9,11.8,3.8l0.1-3.3H197v13.3h-11.2c-0.2-3.6-3.7-5.2-7.2-5.2 C175.8,24.8,174.5,26.1,174.5,27.8 M262.8,27.3h-3.7l-9.4,31.8h-12.5l-5.9-17.4L226,59.1h-12.8l-10.6-31.7h-3.7V16.6h22.1v10.7  h-5.6l5.8,16.9l7.6-27.6h6.8l9.3,27.7l5-16.9h-5.6V16.6h18.5V27.3z M302,37.9c0,0.9,0,1.8-0.1,2.7h-25.4  c-0.7,8.2,2.4,10.6,7.1,10.6c3.9,0,6.9-2.6,6.9-6.6h11c-0.3,7.2-4,15.4-18.5,15.4c-14.5,0-21.3-10.5-21.3-22.1  c0-10.5,7-21.6,21-21.6C296.1,16.2,302,25.5,302,37.9 M343.9,37.8c0,0.9,0,1.8-0.1,2.7h-25.4c-0.7,8.2,2.4,10.6,7.1,10.6  c3.9,0,6.9-2.6,6.9-6.6h11c-0.3,7.2-4,15.4-18.5,15.4c-14.5,0-21.3-10.5-21.3-22.1c0-10.5,7-21.6,21-21.6 C338,16.1,343.9,25.4,343.9,37.8 M389.9,59h-12.8l-13.3-17.3l-4.3,3.2v3.4h3.8V59h-19.6V48.3h3.7V10.6h-5.6V0h17.8v33.9l8.9-6.5 h-5.6V16.6h23.9v10.8h-3.7l-9.3,7l10.7,13.9h5.6L389.9,59L389.9,59z M395.6,56.6c0,0.5-0.1,0.9-0.4,1.2c-0.2,0.4-0.5,0.7-0.9,0.9  c-0.4,0.2-0.8,0.4-1.3,0.4c-0.5,0-0.9-0.1-1.2-0.4c-0.4-0.2-0.7-0.5-0.9-0.9c-0.2-0.4-0.4-0.8-0.4-1.2c0-0.5,0.1-0.9,0.4-1.2  c0.2-0.4,0.5-0.7,0.9-0.9c0.4-0.2,0.8-0.4,1.2-0.4c0.5,0,0.9,0.1,1.3,0.4c0.4,0.2,0.7,0.5,0.9,0.9  C395.5,55.8,395.6,56.2,395.6,56.6 M394.6,58c0.4-0.4,0.6-0.9,0.6-1.4c0-0.6-0.2-1-0.6-1.4s-0.9-0.6-1.4-0.6s-1,0.2-1.4,0.6 c-0.4,0.4-0.6,0.9-0.6,1.4c0,0.6,0.2,1,0.6,1.4c0.4,0.4,0.9,0.6,1.4,0.6S394.2,58.4,394.6,58 M393.6,56.8c0.1,0.1,0.2,0.1,0.2,0.1 c0.1,0.1,0.2,0.2,0.2,0.3c0,0,0.2,0.3,0.4,0.8h-0.8c-0.3-0.5-0.4-0.8-0.5-0.9c-0.1-0.1-0.2-0.2-0.3-0.2c0,0-0.1,0-0.1,0v1.1h-0.6  v-2.6h1.2c0.4,0,0.6,0.1,0.7,0.2c0.2,0.2,0.2,0.3,0.2,0.6c0,0.2-0.1,0.4-0.2,0.5C393.9,56.6,393.8,56.7,393.6,56.8 M393.5,56.3  c0.1-0.1,0.1-0.2,0.1-0.3s-0.1-0.2-0.1-0.3c-0.1-0.1-0.2-0.1-0.4-0.1h-0.3v0.7h0.3C393.3,56.4,393.4,56.4,393.5,56.3 M318.4,33.5  h13.9c0-6-3.9-8.4-6.8-8.4C322.1,25.2,318.6,27.9,318.4,33.5 M276.5,33.6h13.9c0-6-3.9-8.4-6.8-8.4C280.3,25.2,276.8,28,276.5,33.6 M70.3,33.7h13.9c0-6-3.9-8.4-6.8-8.4C74.1,25.3,70.6,28.1,70.3,33.7"
+                  ></path>
+                </g>
+              </svg>
+            </a>
+            <span
+              class="genericon genericon_menu c_p ta_center align-items-center justify-content-center pos_abs t_0 r_0 d_block"
+            >
+              <span></span>
+            </span>
+          </div>
+          <nav class="nav_bar zi_1">
+            <div class="nav_div justify-content-center">
+              <form>
+                <div>
+                  <div class="c_i">
+                    <div>
+                      <label class="search_label pos_abs t_0 r_0 o_h">Search</label>
+                      <input
+                        type="text"
+                        name="search"
+                        class="search_input t_0"
+                        placeholder="Search"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <ul class="nav_ul c_b">
+                <li class="nav_list">
+                  <a href="#" class="d_block">U.S.</a>
+                </li>
+                <li class="nav_list">
+                  <a href="#" class="d_block">World</a>
+                </li>
+                <li class="nav_list">
+                  <a href="#" class="d_block">Business</a>
+                </li>
+                <li class="nav_list">
+                  <a href="#" class="d_block">Tech & science</a>
+                </li>
+                <li class="nav_list">
+                  <a href="#" class="d_block">Culture</a>
+                </li>
+                <li class="nav_list">
+                  <a href="#" class="d_block">Newsgeek</a>
+                </li>
+                <li class="nav_list">
+                  <a href="#" class="d_block">Sports</a>
+                </li>
+                <li class="nav_list">
+                  <a href="#" class="d_block">Health</a>
+                </li>
+                <li class="nav_list">
+                  <a href="#" class="d_block">The Debate</a>
+                </li>
+                <li class="nav_list">
+                  <a href="#" class="d_block">Vantage</a>
+                </li>
+                <li class="nav_list">
+                  <a href="#" class="d_block">Weather</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+    </div>
+    <main class="container-fluid main cont">
+      <div class="row">
+        <div class="col-lg-9">
+          <div class="t_0 l_0 w_auto s_h">
+            <div class="row ">
+              <div class="col-lg-4 col-md-5 featured_story order-md-1 order-sm-2 order-2">
+                <div class="t_0 l_0 w_auto">
+                  <div>
+                    <div>
+                      <div class="title_block_light">featured Story</div>
+                      <article class="fs_article">
+                        <div class="img_wrap pos_rel">
+                          <div class="category d_block pos_abs b_0 l_0 zi_1">
+                            <a href="#">U.S</a>
+                          </div>
+                          <div class="img_div">
+                            <a href="#" class="d_block">
+                              <picture>
+                                <img
+                                  src="https://d.newsweek.com/en/full/1588315/justin-trudeau.jpg?w=397&h=265&q=90&f=8a208577f2ca514ad6d1704d64f764b1"
+                                  class="w_full pos_abs"
+                                  alt="d"
+                                />
+                              </picture>
+                            </a>
+                          </div>
+                        </div>
+                        <h3>
+                          <a href="#" class="feat_a"
+                            >Canada is raising pay for essential workers as U.S. proposal languishes
+                            in Congress</a
+                          >
+                        </h3>
+                        <div class="summary">
+                          Prime Minister Trudeau said Thursday that Canada's essential workers were
+                          "tremendously economically vulnerable."
+                        </div>
+                      </article>
+                      <article class="fs_article">
+                        <div class="img_wrap pos_rel">
+                          <div class="category d_block pos_abs b_0 l_0 zi_1">
+                            <a href="#">U.S</a>
+                          </div>
+                          <div class="img_div">
+                            <a href="#" class="d_block">
+                              <picture>
+                                <img
+                                  src="https://d.newsweek.com/en/full/1588221/michael-flynn.webp?w=397&h=265&q=90&f=6d99efa59181838ffe2461f7a8a2c9a6"
+                                  class="w_full pos_abs"
+                                  alt="h"
+                                />
+                              </picture>
+                            </a>
+                          </div>
+                        </div>
+                        <h3>
+                          <a href="#" class="feat_a"
+                            >Trump Calls Flynn a 'Warrior' after DOJ Drops Charges</a
+                          >
+                        </h3>
+                        <div class="summary">
+                          Beyond Flynn, five other Trump associates have either pleaded guilty or
+                          been convicted in prosecutions arising from the Russia investigation.
+                        </div>
+                      </article>
+                      <article class="fs_article">
+                        <div class="img_wrap pos_rel">
+                          <div class="category d_block pos_abs b_0 l_0 zi_1">
+                            <a href="#">Sports</a>
+                          </div>
+                          <div class="img_div">
+                            <a href="#" class="d_block">
+                              <picture>
+                                <img
+                                  src="https://d.newsweek.com/en/full/1588289/paralympic-sprinter-david-brown.jpg?w=397&h=265&q=90&f=47b16e4df3cb2c69feb3b3f4a2cec749"
+                                  class="w_full pos_abs"
+                                  alt="j"
+                                />
+                              </picture>
+                            </a>
+                          </div>
+                        </div>
+                        <h3>
+                          <a href="#" class="feat_a"
+                            >World's Fastest Blind Man Forced to Defend Title By Altering
+                            Training</a
+                          >
+                        </h3>
+                        <div class="summary">
+                          Here's the story of how David Brown went from a small kid in Missouri with
+                          blurred vision to the fastest blind man in the world, and how he trains to
+                          retain that title while training facilities are shut down.
+                        </div>
+                      </article>
+                      <article class="fs_article">
+                        <div class="img_wrap pos_rel">
+                          <div class="category d_block pos_abs b_0 l_0 zi_1">
+                            <a href="#">U.s</a>
+                          </div>
+                          <div class="img_div">
+                            <a href="#" class="d_block">
+                              <picture>
+                                <img
+                                  src="https://d.newsweek.com/en/full/1588257/coronavirus-testing-new-york.jpg?w=397&h=265&q=90&f=ad58e0215cb5e8c82a688b2c9894c7c4"
+                                  class="w_full pos_abs"
+                                  alt="s"
+                                />
+                              </picture>
+                            </a>
+                          </div>
+                        </div>
+                        <h3>
+                          <a href="#" class="feat_a"
+                            >41 States Are Not Doing Enough Tests to Ease Social Distancing, Study
+                            Shows</a
+                          >
+                        </h3>
+                        <div class="summary">
+                          A report from NPR and the Harvard Global Health Institute illustrates gaps
+                          between U.S. states' current diagnostic testing capacities and target
+                          thresholds it argues would be necessary to roll back social distancing
+                          restrictions.
+                        </div>
+                      </article>
+                      <article class="fs_article">
+                        <div class="img_wrap pos_rel">
+                          <div class="category d_block pos_abs b_0 l_0 zi_1">
+                            <a href="#">Business</a>
+                          </div>
+                          <div class="img_div">
+                            <a href="#" class="d_block">
+                              <picture>
+                                <img
+                                  src="https://d.newsweek.com/en/full/1587568/infection-prevention-products-banner.jpg?w=397&h=265&q=90&f=7384c019cacff7ea0188761b71f55dd8"
+                                  class="w_full pos_abs"
+                                  alt="s"
+                                />
+                              </picture>
+                            </a>
+                          </div>
+                        </div>
+                        <h3>
+                          <a href="#" class="feat_a">Best Infection Prevention Products</a>
+                        </h3>
+                        <div class="summary">
+                          During the coronavirus outbreak, health care is more important than ever.
+                          In Newsweek's first Best Health Care series, we highlight the best
+                          infection prevention products.
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                  <div class="d_min768_none">
+                    <div class="nw_opinion">
+                      <div class="sub_feat">
+                        <div class="title_block_light"><a href="#">Opinion</a></div>
+                        <ul>
+                          <li class="sub_feat_li d_flex">
+                            <div class="headshot ms_img_div o_h pos_rel">
+                              <a href="#" class="headshot_a d_block">
+                                <picture class="laz">
+                                  <img
+                                    src="https://d.newsweek.com/en/full/1528785/roff-new.png?w=63&h=63&f=4dc2ef8dad149bbca161552d8b875591"
+                                    alt="d"
+                                    class="pos_abs w_full"
+                                  />
+                                </picture>
+                              </a>
+                            </div>
+                            <div class="info flex_1">
+                              <a href="#" class="subfeat_a">
+                                America Needs Payroll Tax Holiday, Not More Pelosi Spending
+                              </a>
+                              <div class="byline">By Peter Roff</div>
+                            </div>
+                          </li>
+                          <li class="sub_feat_li d_flex">
+                            <div class="headshot ms_img_div o_h pos_rel">
+                              <a href="#" class="headshot_a d_block">
+                                <picture class="laz">
+                                  <img
+                                    src="https://d.newsweek.com/en/full/1588240/shiwali-patel.png?w=63&h=63&f=d2b0879e4885d11aa7b31672dbf6842b"
+                                    alt="d"
+                                    class="pos_abs w_full"
+                                  />
+                                </picture>
+                              </a>
+                            </div>
+                            <div class="info flex_1">
+                              <a href="#" class="subfeat_a">
+                                Even in a Crisis, Trump and DeVos Are Determined to Fail Students
+                              </a>
+                              <div class="byline">BY SHIWALI PATEL</div>
+                            </div>
+                          </li>
+                          <li class="sub_feat_li d_flex">
+                            <div class="headshot ms_img_div o_h pos_rel">
+                              <a href="#" class="headshot_a d_block">
+                                <picture class="laz">
+                                  <img
+                                    src="https://d.newsweek.com/en/full/1516895/stephen-prince.png?w=63&h=63&f=1d8f0edbceaab82ca3f05010ba72d241"
+                                    alt="d"
+                                    class="pos_abs w_full"
+                                  />
+                                </picture>
+                              </a>
+                            </div>
+                            <div class="info flex_1">
+                              <a href="#" class="subfeat_a">
+                                Congress Isn't Protecting Cash-Strapped Americans From Debt
+                                Collectors
+                              </a>
+                              <div class="byline">BY STEPHEN PRINCE</div>
+                            </div>
+                          </li>
+                          <li class="sub_feat_li d_flex">
+                            <div class="headshot ms_img_div o_h pos_rel">
+                              <a href="#" class="headshot_a d_block">
+                                <picture class="laz">
+                                  <img
+                                    src="https://d.newsweek.com/en/full/1522374/christine-todd-whitman.png?w=63&h=63&f=7d3b68bd3d7a6dbb31ba74ebbda70564"
+                                    alt="d"
+                                    class="pos_abs w_full"
+                                  />
+                                </picture>
+                              </a>
+                            </div>
+                            <div class="info flex_1">
+                              <a href="#" class="subfeat_a">
+                                As a Lifelong Republican, I Demand Trump Let Fauci Testify Before
+                                the House
+                              </a>
+                              <div class="byline">BY CHRISTINE TODD WHITMAN</div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="debate">
+                        <div class="sub_feat">
+                          <div class="title_block_light"><a href="#">The Debate</a></div>
+                          <div class="debate_item_top">
+                            <div class="d_flex align-items-center">
+                              <div class="ms_img_div">
+                                <a href="#" class="d_block">
+                                  <picture class="laz">
+                                    <img
+                                      src="https://d.newsweek.com/en/full/1586595/trump-china.jpg?w=95&h=95&f=61d8eee7fb1aebec41cec48fe4cbbfc6"
+                                      class="pos_abs w_auto debate_img"
+                                      alt="j"
+                                    />
+                                  </picture>
+                                </a>
+                              </div>
+                              <div class="info flex_1">
+                                <a href="#">China Must Be Made to Pay Reparations for COVID-19</a>
+                              </div>
+                            </div>
+                            <div class="c_b byline pos_rel align-items-center d_flex">
+                              <div class="f1 flex_1">
+                                <span>By</span>
+                                <a href="#">Nigel Farage</a>
+                              </div>
+                              <div class="headshot fn pos_rel zi_1 o_h">
+                                <a href="#" class="d_block headshot_a">
+                                  <picture class="laz">
+                                    <img
+                                      src="https://d.newsweek.com/en/full/1563625/nigel-farage.png?w=150&h=150&f=2ae37ecc11a3397b627c243707faa3cb"
+                                      class="pos_abs w_auto debate_img"
+                                      alt="s"
+                                    />
+                                  </picture>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="vs ta_center">VS</div>
+                          <div class="debate_item_b">
+                            <div class="d_flex align-items-center">
+                              <div class="ms_img_div">
+                                <a href="#" class="d_block">
+                                  <picture class="laz">
+                                    <img
+                                      src="https://d.newsweek.com/en/full/1587254/donald-trump.jpg?w=95&h=95&f=369efbffa9b26895aac9176d3385357d"
+                                      class="pos_abs w_auto debate_img"
+                                      alt="j"
+                                    />
+                                  </picture>
+                                </a>
+                              </div>
+                              <div class="info flex_1">
+                                <a href="#"
+                                  >There's No Good Way to Make China Pay for the Pandemic</a
+                                >
+                              </div>
+                            </div>
+                            <div class="c_b byline pos_rel align-items-center d_flex">
+                              <div class="f1 flex_1">
+                                <span>By</span>
+                                <a href="#"> BONNIE KRISTIAN</a>
+                              </div>
+                              <div class="headshot fn pos_rel zi_1 o_h">
+                                <a href="#" class="d_block headshot_a">
+                                  <picture class="laz">
+                                    <img
+                                      src="https://d.newsweek.com/en/full/1568478/bonnie-kristian.png?w=150&h=150&f=e7d92ab04281e52ef365c0014402de48"
+                                      class="pos_abs w_auto debate_img"
+                                      alt="s"
+                                    />
+                                  </picture>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="sponsor">
+                      <div class="sponsor_wrap pos_rel">
+                        <div class="category d_block pos_abs b_0 l_0 zi_1">
+                          sponsored insight
+                        </div>
+                        <div>
+                          <a href="#" class="d_block">
+                            <span class="sponsor_img si_1 d_block"></span>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="info">
+                        <h3 class="d_ib">Turkey: Strength in Adversity</h3>
+                        <div class="summary">
+                          More than two decades of rapid economic expansion have cemented Turkey’s
+                          position as a dominant regional economic power and rising global power.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="sponsor">
+                      <div class="sponsor_wrap pos_rel">
+                        <div class="category d_block pos_abs b_0 l_0 zi_1">
+                          sponsored insight
+                        </div>
+                        <div>
+                          <a href="#" class="d_block">
+                            <span class="sponsor_img si_2 d_block"></span>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="info">
+                        <h3 class="d_ib">Weathering the Perfect Storm</h3>
+                        <div class="summary">
+                          COVID-19 is not our only enemy. While the world confronts a pandemic, our
+                          critical infrastructure is vulnerable to cyberattack. Read this new report
+                          on where the weak points are and how to strengthen defenses against
+                          terrorists and cyber-criminals.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="sponsor">
+                      <div class="sponsor_wrap pos_rel">
+                        <div>
+                          <a href="#" class="d_block">
+                            <span class="sponsor_img si_3 d_block"></span>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="info">
+                        <h3 class="d_ib">World's Best Hospitals 2020</h3>
+                        <div class="summary">
+                          Newsweek partnered with Statista Inc. to rank the leading hospitals in 21
+                          countries
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="sponsor">
+                      <div class="sponsor_wrap pos_rel">
+                        <div class="category d_block pos_abs b_0 l_0 zi_1">
+                          sponsored insight
+                        </div>
+                        <div>
+                          <a href="#" class="d_block">
+                            <span class="sponsor_img si_4 d_block"></span>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="info">
+                        <h3 class="d_ib">
+                          What is an IB Private Education and Why is it so Important?
+                        </h3>
+                        <div class="summary">
+                          The aim of the IB is to offer the best possible international education
+                          for students of all backgrounds and from every part of the world. Find out
+                          more.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="sponsor">
+                      <div class="sponsor_wrap pos_rel">
+                        <div>
+                          <a href="#" class="d_block">
+                            <span class="sponsor_img si_5 d_block"></span>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="info">
+                        <h3 class="d_ib">
+                          Newsweek AMPLIFY Launches Strategic Partnership Solutions for Brands
+                        </h3>
+                        <div class="summary">
+                          Newsweek AMPLIFY, the company's performance marketing business unit, has
+                          launched a new program to empower digital brands with comprehensive
+                          content marketing and advertising strategies.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8 col-md-7 top_story order-md-2 order-sm-1 order-1 ">
+                <div class="t_0 l_0 w_auto h_full">
+                  <div class="di_c top_story_div">
+                    <div class="order-">
+                      <div>
+                        <div class="title_block_light">Top story</div>
+                        <article class="fs_article">
+                          <div class="img_wrap pos_rel">
+                            <div class="d_block category  pos_abs b_0 l_0 zi_1">
+                              <a href="#">NEWS</a>
+                            </div>
+                            <div class="img_div">
+                              <a href="#" class="d_block">
+                                <picture>
+                                  <img
+                                    src="https://d.newsweek.com/en/full/1588583/president-donald-trump.jpg?w=591&h=364&f=b9e1e6a8e640165ddfd179140238f959"
+                                    class="w_full pos_abs"
+                                    alt="k"
+                                  />
+                                </picture>
+                              </a>
+                            </div>
+                          </div>
+                          <h3>
+                            <a href="#" class="feat_a"
+                              >White House Misled Public, Buried CDC Reopening Guidelines and is Now
+                              Preparing for Second Coronavirus Wave</a
+                            >
+                          </h3>
+                          <div class="summary">
+                            The White House is making "contingency plans" for a second wave of
+                            coronavirus after emails reportedly contradict their claims that Centers
+                            for Disease Control and Prevention guidelines to safely reopen the
+                            economy were set aside because medical experts did not approve of them.
+                          </div>
+                        </article>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="culture_stories d_max767_none order-">
+                    <div class="title_block_light"><a href="#">HEROES OF THE PANDEMIC</a></div>
+                    <div class="culture_items">
+                      <div class="culture_item">
+                        <div class="img_d pos_rel">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside laz d_block w_full">
+                              <img
+                                src="https://d.newsweek.com/en/full/1582032/riya-ortiz-damayan-migrant-workers-association.jpg?w=397&h=397&f=53de83c7597de80f95461e7b0774eada"
+                                class="w_full pos_abs"
+                                alt="u"
+                              />
+                            </picture>
+                          </a>
+                          <div class="tags b_0 l_0 pos_abs">
+                            <a href="#" class="d_ib">
+                              Pandemic Heroes
+                            </a>
+                          </div>
+                        </div>
+                        <div class="info">
+                          <div class="title">
+                            <a href="#"
+                              >Organizer Helps Rebuild New York's Filipino Community Hit by
+                              COVID-19</a
+                            >
+                          </div>
+                          <div class="summary">
+                            "When this whole thing started what kept me up at night is the
+                            possibility of mass casualties in our community," Riya Ortiz told
+                            Newsweek.
+                          </div>
+                        </div>
+                      </div>
+                      <div class="culture_item">
+                        <div class="img_d pos_rel">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside laz d_block w_full">
+                              <img
+                                src="https://d.newsweek.com/en/full/1581628/sandra-sacco-face-masks-coronavirus.jpg?w=397&h=397&f=7892f6ddd82131592228622320b031ef"
+                                class="w_full pos_abs"
+                                alt="u"
+                              />
+                            </picture>
+                          </a>
+                          <div class="tags b_0 l_0 pos_abs">
+                            <a href="#" class="d_ib">
+                              Pandemic Heroes
+                            </a>
+                          </div>
+                        </div>
+                        <div class="info">
+                          <div class="title">
+                            <a href="#"
+                              >Tennessee Group Makes Coronavirus Face Masks for Local, International
+                              Use</a
+                            >
+                          </div>
+                          <div class="summary">
+                            "We're not selling anything," Sacco said Tuesday. "Every single bit of
+                            this is donation-only or nothing."
+                          </div>
+                        </div>
+                      </div>
+                      <div class="culture_item">
+                        <div class="img_d pos_rel">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside laz d_block w_full">
+                              <img
+                                src="https://d.newsweek.com/en/full/1578426/zoe-monterola-founder-six-feet-supplies.jpg?w=397&h=397&f=f7a624e81aa902878bb39d5fe83e971f"
+                                class="w_full pos_abs"
+                                alt="d"
+                              />
+                            </picture>
+                          </a>
+                          <div class="tags b_0 l_0 pos_abs">
+                            <a href="#" class="d_ib">
+                              Pandemic Heroes
+                            </a>
+                          </div>
+                        </div>
+                        <div class="info">
+                          <div class="title">
+                            <a href="#"
+                              >Teenagers Shop for the Vulnerable During Coronavirus Emergency</a
+                            >
+                          </div>
+                          <div class="summary">
+                            "I almost cried," said a user of Six Feet Supplies, a charity started by
+                            teenagers who shop for those susceptible to COVID-19.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="title_block_light"><a href="#">Culture & Travel</a></div>
+                    <div class="culture_items">
+                      <div class="culture_item">
+                        <div class="img_d pos_rel">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside laz d_block w_full">
+                              <img
+                                src="https://d.newsweek.com/en/full/1586378/naomi-tomky.png?w=397&h=397&f=c5f3297afdbaeef9aab32c55079cf40d"
+                                class="w_full pos_abs"
+                                alt="u"
+                              />
+                            </picture>
+                          </a>
+                          <div class="tags b_0 l_0 pos_abs">
+                            <a href="#" class="d_ib">
+                              Baking
+                            </a>
+                          </div>
+                        </div>
+                        <div class="info">
+                          <div class="title">
+                            <a href="#"
+                              >Beyond Baking Bread, What's Everyone Cooking in Lockdown?</a
+                            >
+                          </div>
+                          <div class="summary">
+                            The foodie authorities share with Newsweek they've seen an uptick in
+                            slow cooking, getting creative with food scraps and even virtual dinner
+                            parties.
+                          </div>
+                        </div>
+                      </div>
+                      <div class="culture_item">
+                        <div class="img_d pos_rel">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside laz d_block w_full">
+                              <img
+                                src="https://d.newsweek.com/en/full/1576391/cul-uncharted-coffee-banner.jpg?w=397&h=397&f=4d2409095121a97e6958cb0acb5c209d"
+                                class="w_full pos_abs"
+                                alt="u"
+                              />
+                            </picture>
+                          </a>
+                          <div class="tags b_0 l_0 pos_abs">
+                            <a href="#" class="d_ib">
+                              Travel
+                            </a>
+                          </div>
+                        </div>
+                        <div class="info">
+                          <div class="title">
+                            <a href="#">How The World Takes Its Coffee</a>
+                          </div>
+                          <div class="summary">
+                            Whether you prefer a coffee spiced with pepper, a half-caf venti no-foam
+                            soy latte from your favorite barista; or a coffee with cheese, here's a
+                            sampling of caffeinated rituals from across the globe.
+                          </div>
+                        </div>
+                      </div>
+                      <div class="culture_item">
+                        <div class="img_d pos_rel">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside laz d_block w_full">
+                              <img
+                                src="https://d.newsweek.com/en/full/1578426/zoe-monterola-founder-six-feet-supplies.jpg?w=397&h=397&f=f7a624e81aa902878bb39d5fe83e971f"
+                                class="w_full pos_abs"
+                                alt="d"
+                              />
+                            </picture>
+                          </a>
+                          <div class="tags b_0 l_0 pos_abs">
+                            <a href="#" class="d_ib">
+                              Star Wars
+                            </a>
+                          </div>
+                        </div>
+                        <div class="info">
+                          <div class="title">
+                            <a href="#">Relive the 'Star Wars' Saga at These Filming Locations</a>
+                          </div>
+                          <div class="summary">
+                            Fans may be lamenting the end of the 'Star Wars' series, but they can
+                            still visit these film locations and space-themed destinations.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="more_stories s_h d_max767_none">
+                    <div>
+                      <div class="title_block_light"><a href="#">More Stories</a></div>
+                      <article class="ms_article">
+                        <div class="ms_img_div f_l">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside laz w_full">
+                              <img
+                                src="https://d.newsweek.com/en/full/1588472/feminism-birth-control-womens-rights-new-york.jpg?w=95&h=95&f=ca8bbdee66d31f228a145f7cc8ce1df8"
+                                class="w_full pos_abs"
+                                alt="d"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <h4 class="ms_h4">
+                          <a href="#" class="ms_h4_a"
+                            >I Was A Feminist In The '70s When The Pill Was Legalized For All
+                            Women</a
+                          >
+                        </h4>
+                        <div>
+                          It has been 60 years since the FDA first approved the birth control pill
+                          on May 9, 1960. It emerged as an essential pillar of women's ability to
+                          have good quality of life.
+                        </div>
+                      </article>
+                      <article class="ms_article">
+                        <div class="ms_img_div f_l">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside laz w_full">
+                              <img
+                                src="https://d.newsweek.com/en/full/1582655/coronavirus-us.jpg?w=95&h=95&f=986cfcfbfbbd7a4a883592c242626487"
+                                class="w_full pos_abs"
+                                alt="d"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <h4 class="ms_h4">
+                          <a href="#" class="ms_h4_a"
+                            >U.S. Nursing Homes Have More Coronavirus Deaths Than All But 5
+                            Countries</a
+                          >
+                        </h4>
+                        <div>
+                          The data isn't complete, but several reports show the grim picture of how
+                          the institutions that care for the nation's elderly have been among the
+                          hardest hit by the coronavirus pandemic.
+                        </div>
+                      </article>
+                      <article class="ms_article">
+                        <div class="ms_img_div f_l">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside laz w_full">
+                              <img
+                                src="https://d.newsweek.com/en/full/1588371/new-york-city-subway.jpg?w=95&h=95&f=242a43bfcff4c39a1b3d7c4ee7ebf7f2"
+                                class="w_full pos_abs"
+                                alt="d"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <h4 class="ms_h4">
+                          <a href="#" class="ms_h4_a"
+                            >Coronavirus, Economic Stress Contribute to Low Life Satisfaction in
+                            U.S.</a
+                          >
+                        </h4>
+                        <div>
+                          A sharp drop in life satisfaction has been recorded among Americans since
+                          the coronavirus began spreading across the U.S., Gallup pollsters found.
+                        </div>
+                      </article>
+                      <article class="ms_article">
+                        <div class="ms_img_div f_l">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside laz w_full">
+                              <img
+                                src="https://d.newsweek.com/en/full/1588413/man-tasered-greater-manchester-police.jpg?w=95&h=95&f=157e09532b4ced97c24a61a41472f17e"
+                                class="w_full pos_abs"
+                                alt="d"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <h4 class="ms_h4">
+                          <a href="#" class="ms_h4_a"
+                            >U.K. Police Force Taser Man in Front of Screaming Child as he keeps
+                            crying</a
+                          >
+                        </h4>
+                        <div>
+                          Video footage shows the man being tasered in front of a distressed child,
+                          who can be heard screaming "daddy" as he watches him fall to the floor.
+                        </div>
+                      </article>
+                      <article class="ms_article">
+                        <div class="ms_img_div f_l">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside laz w_full">
+                              <img
+                                src="https://d.newsweek.com/en/full/1588045/business-closed-coronavirus-arlington-virginia-2020.jpg?w=95&h=95&f=998c95c8b648f825867d183cf5e50b88"
+                                class="w_full pos_abs"
+                                alt="d"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <h4 class="ms_h4">
+                          <a href="#" class="ms_h4_a"
+                            >Coronavirus Could Devastate State Unemployment Systems After Recession
+                            Ends</a
+                          >
+                        </h4>
+                        <div>
+                          "I would fully expect harsh cuts to unemployment benefits in the years to
+                          come," said Andrew Stettner, a senior fellow at The Century Foundation.
+                        </div>
+                      </article>
+                      <article class="ms_article">
+                        <div class="ms_img_div f_l">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside laz w_full">
+                              <img
+                                src="https://d.newsweek.com/en/full/1588385/brazilian-president-jair-bolsonaro.jpg?w=95&h=95&f=4961b0d73680f4d47a4287fbd075b669"
+                                class="w_full pos_abs"
+                                alt="d"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <h4 class="ms_h4">
+                          <a href="#" class="ms_h4_a"
+                            >Brazil's Bolsonaro Plans 30-Person BBQ Despite Coronavirus
+                            Guidelines</a
+                          >
+                        </h4>
+                        <div>
+                          Brazilian President Jair Bolsonaro recently said that he is planning a
+                          30-person barbecue on Saturday despite the outbreak of the novel
+                          coronavirus and the different guidelines in place to stop the spread.
+                        </div>
+                      </article>
+                      <article class="ms_article">
+                        <div class="ms_img_div f_l">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside laz w_full">
+                              <img
+                                src="https://d.newsweek.com/en/full/1588336/tyson-foods.jpg?w=95&h=95&f=a630e44080b7c02839e70a8700d3b3df"
+                                class="w_full pos_abs"
+                                alt="d"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <h4 class="ms_h4">
+                          <a href="#" class="ms_h4_a"
+                            >Over a Third of Workers at a Tyson Facility in Iowa Contracted
+                            COVID-19</a
+                          >
+                        </h4>
+                        <div>
+                          The Waterloo plant had closed on April 22 after workers got sick and has
+                          recently reopened.
+                        </div>
+                      </article>
+                      <article class="ms_article">
+                        <div class="ms_img_div f_l">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside laz w_full">
+                              <img
+                                src="https://d.newsweek.com/en/full/1588361/coronavirus-lab.jpg?w=95&h=95&f=ba837bc1abceeabf5267f6d7a300b9ba"
+                                class="w_full pos_abs"
+                                alt="d"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <h4 class="ms_h4">
+                          <a href="#" class="ms_h4_a"
+                            >Conspiracy Theories Sparked by Murder of Chinese-born Covid-19
+                            Researcher</a
+                          >
+                        </h4>
+                        <div>
+                          The University of Pittsburgh said Bing was on the verge of making a
+                          significant discovery about the coronavirus before he was found shot dead.
+                        </div>
+                      </article>
+                      <article class="ms_article">
+                        <div class="ms_img_div f_l">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside laz w_full">
+                              <img
+                                src="https://d.newsweek.com/en/full/1588342/coronavirus-mask.jpg?w=95&h=95&f=3dc5476694e49edf0d0db660af1e7a29"
+                                class="w_full pos_abs"
+                                alt="d"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <h4 class="ms_h4">
+                          <a href="#" class="ms_h4_a"
+                            >Americans Worry COVID-19 Restrictions Will Be Lifted Too Quickly:
+                            Poll</a
+                          >
+                        </h4>
+                        <div>
+                          Questions have been raised as some areas begin to reopen following
+                          measures imposed due to the novel coronavirus.
+                        </div>
+                      </article>
+                      <article class="ms_article">
+                        <div class="ms_img_div f_l">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside laz w_full">
+                              <img
+                                src="https://d.newsweek.com/en/full/1588215/mitch-mcconnell-democratic-challengers-ky-senate-race.jpg?w=95&h=95&f=5310ff8422de06deeb0827cb1e9df049"
+                                class="w_full pos_abs"
+                                alt="d"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <h4 class="ms_h4">
+                          <a href="#" class="ms_h4_a"
+                            >McConnell's Democratic Rivals See Ousting GOP Leader as Matter of
+                            Survival</a
+                          >
+                        </h4>
+                        <div>
+                          "I was thinking maybe we can survive four more years of Donald Trump but
+                          we couldn't survive six more years of Mitch McConnell," Senate candidate
+                          Mike Broihier told Newsweek
+                        </div>
+                      </article>
+                      <article class="ms_article">
+                        <div class="ms_img_div f_l">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside laz w_full">
+                              <img
+                                src="https://d.newsweek.com/en/full/1588338/united-nations-secretary-general-antonio-guterres.jpg?w=95&h=95&f=2013a0e8d8aeab0d3c7d1c94541a843c"
+                                class="w_full pos_abs"
+                                alt="d"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <h4 class="ms_h4">
+                          <a href="#" class="ms_h4_a"
+                            >COVID-19 Has Unleashed 'Tsunami of Hate and Scaremongering': U.N.
+                            Chief</a
+                          >
+                        </h4>
+                        <div>
+                          "As we combat the pandemic, we have a duty to protect people, end stigma
+                          and prevent violence. Let's defeat hate speech and COVID-19 together,"
+                          U.N. Secretary-General Antonio Guterres said.
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 opinion">
+          <div class="t_0 l_0 w_auto">
+            <div class="nw_opinion d_max767_none">
+              <div class="sub_feat">
+                <div class="title_block_light"><a href="#">Opinion</a></div>
+                <ul>
+                  <li class="sub_feat_li d_flex">
+                    <div class="headshot ms_img_div o_h pos_rel">
+                      <a href="#" class="headshot_a d_block">
+                        <picture class="laz">
+                          <img
+                            src="https://d.newsweek.com/en/full/1528785/roff-new.png?w=63&h=63&f=4dc2ef8dad149bbca161552d8b875591"
+                            alt="d"
+                            class="pos_abs w_full"
+                          />
+                        </picture>
+                      </a>
+                    </div>
+                    <div class="info flex_1">
+                      <a href="#" class="subfeat_a">
+                        America Needs Payroll Tax Holiday, Not More Pelosi Spending
+                      </a>
+                      <div class="byline">By Peter Roff</div>
+                    </div>
+                  </li>
+                  <li class="sub_feat_li d_flex">
+                    <div class="headshot ms_img_div o_h pos_rel">
+                      <a href="#" class="headshot_a d_block">
+                        <picture class="laz">
+                          <img
+                            src="https://d.newsweek.com/en/full/1588240/shiwali-patel.png?w=63&h=63&f=d2b0879e4885d11aa7b31672dbf6842b"
+                            alt="d"
+                            class="pos_abs w_full"
+                          />
+                        </picture>
+                      </a>
+                    </div>
+                    <div class="info flex_1">
+                      <a href="#" class="subfeat_a">
+                        Even in a Crisis, Trump and DeVos Are Determined to Fail Students
+                      </a>
+                      <div class="byline">BY SHIWALI PATEL</div>
+                    </div>
+                  </li>
+                  <li class="sub_feat_li d_flex">
+                    <div class="headshot ms_img_div o_h pos_rel">
+                      <a href="#" class="headshot_a d_block">
+                        <picture class="laz">
+                          <img
+                            src="https://d.newsweek.com/en/full/1516895/stephen-prince.png?w=63&h=63&f=1d8f0edbceaab82ca3f05010ba72d241"
+                            alt="d"
+                            class="pos_abs w_full"
+                          />
+                        </picture>
+                      </a>
+                    </div>
+                    <div class="info flex_1">
+                      <a href="#" class="subfeat_a">
+                        Congress Isn't Protecting Cash-Strapped Americans From Debt Collectors
+                      </a>
+                      <div class="byline">BY STEPHEN PRINCE</div>
+                    </div>
+                  </li>
+                  <li class="sub_feat_li d_flex">
+                    <div class="headshot ms_img_div o_h pos_rel">
+                      <a href="#" class="headshot_a d_block">
+                        <picture class="laz">
+                          <img
+                            src="https://d.newsweek.com/en/full/1522374/christine-todd-whitman.png?w=63&h=63&f=7d3b68bd3d7a6dbb31ba74ebbda70564"
+                            alt="d"
+                            class="pos_abs w_full"
+                          />
+                        </picture>
+                      </a>
+                    </div>
+                    <div class="info flex_1">
+                      <a href="#" class="subfeat_a">
+                        As a Lifelong Republican, I Demand Trump Let Fauci Testify Before the House
+                      </a>
+                      <div class="byline">BY CHRISTINE TODD WHITMAN</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="debate">
+                <div class="sub_feat">
+                  <div class="title_block_light"><a href="#">The Debate</a></div>
+                  <div class="debate_item_top">
+                    <div class="d_flex align-items-center">
+                      <div class="ms_img_div">
+                        <a href="#" class="d_block">
+                          <picture class="laz">
+                            <img
+                              src="https://d.newsweek.com/en/full/1586595/trump-china.jpg?w=95&h=95&f=61d8eee7fb1aebec41cec48fe4cbbfc6"
+                              class="pos_abs w_auto debate_img"
+                              alt="j"
+                            />
+                          </picture>
+                        </a>
+                      </div>
+                      <div class="info flex_1">
+                        <a href="#">China Must Be Made to Pay Reparations for COVID-19</a>
+                      </div>
+                    </div>
+                    <div class="c_b byline pos_rel align-items-center d_flex">
+                      <div class="f1 flex_1">
+                        <span>By</span>
+                        <a href="#">Nigel Farage</a>
+                      </div>
+                      <div class="headshot fn pos_rel zi_1 o_h">
+                        <a href="#" class="d_block headshot_a">
+                          <picture class="laz">
+                            <img
+                              src="https://d.newsweek.com/en/full/1563625/nigel-farage.png?w=150&h=150&f=2ae37ecc11a3397b627c243707faa3cb"
+                              class="pos_abs w_auto debate_img"
+                              alt="s"
+                            />
+                          </picture>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="vs ta_center">VS</div>
+                  <div class="debate_item_b">
+                    <div class="d_flex align-items-center">
+                      <div class="ms_img_div">
+                        <a href="#" class="d_block">
+                          <picture class="laz">
+                            <img
+                              src="https://d.newsweek.com/en/full/1587254/donald-trump.jpg?w=95&h=95&f=369efbffa9b26895aac9176d3385357d"
+                              class="pos_abs w_auto debate_img"
+                              alt="j"
+                            />
+                          </picture>
+                        </a>
+                      </div>
+                      <div class="info flex_1">
+                        <a href="#">There's No Good Way to Make China Pay for the Pandemic</a>
+                      </div>
+                    </div>
+                    <div class="c_b byline pos_rel align-items-center d_flex">
+                      <div class="f1 flex_1">
+                        <span>By</span>
+                        <a href="#"> BONNIE KRISTIAN</a>
+                      </div>
+                      <div class="headshot fn pos_rel zi_1 o_h">
+                        <a href="#" class="d_block headshot_a">
+                          <picture class="laz">
+                            <img
+                              src="https://d.newsweek.com/en/full/1568478/bonnie-kristian.png?w=150&h=150&f=e7d92ab04281e52ef365c0014402de48"
+                              class="pos_abs w_auto debate_img"
+                              alt="s"
+                            />
+                          </picture>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="more_stories s_h d_min768_none">
+              <div>
+                <div class="title_block_light"><a href="#">More Stories</a></div>
+                <article class="ms_article">
+                  <div class="ms_img_div f_l">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside laz w_full">
+                        <img
+                          src="https://d.newsweek.com/en/full/1588472/feminism-birth-control-womens-rights-new-york.jpg?w=95&h=95&f=ca8bbdee66d31f228a145f7cc8ce1df8"
+                          class="w_full pos_abs"
+                          alt="d"
+                        />
+                      </picture>
+                    </a>
+                  </div>
+                  <h4 class="ms_h4">
+                    <a href="#" class="ms_h4_a"
+                      >I Was A Feminist In The '70s When The Pill Was Legalized For All Women</a
+                    >
+                  </h4>
+                  <div>
+                    It has been 60 years since the FDA first approved the birth control pill on May
+                    9, 1960. It emerged as an essential pillar of women's ability to have good
+                    quality of life. So less children more fun. Having to care for so many children
+                    can be quite cumbersome.
+                  </div>
+                </article>
+                <article class="ms_article">
+                  <div class="ms_img_div f_l">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside laz w_full">
+                        <img
+                          src="https://d.newsweek.com/en/full/1582655/coronavirus-us.jpg?w=95&h=95&f=986cfcfbfbbd7a4a883592c242626487"
+                          class="w_full pos_abs"
+                          alt="d"
+                        />
+                      </picture>
+                    </a>
+                  </div>
+                  <h4 class="ms_h4">
+                    <a href="#" class="ms_h4_a"
+                      >U.S. Nursing Homes Have More Coronavirus Deaths Than All But 5 Countries</a
+                    >
+                  </h4>
+                  <div>
+                    It has been 60 years since the FDA first approved the birth control pill on May
+                    9, 1960. It emerged as an essential pillar of women's ability to have good
+                    quality of life. So less children more fun. Having to care for so many children
+                    can be quite cumbersome.
+                  </div>
+                </article>
+                <article class="ms_article">
+                  <div class="ms_img_div f_l">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside laz w_full">
+                        <img
+                          src="https://d.newsweek.com/en/full/1588371/new-york-city-subway.jpg?w=95&h=95&f=242a43bfcff4c39a1b3d7c4ee7ebf7f2"
+                          class="w_full pos_abs"
+                          alt="d"
+                        />
+                      </picture>
+                    </a>
+                  </div>
+                  <h4 class="ms_h4">
+                    <a href="#" class="ms_h4_a"
+                      >Coronavirus, Economic Stress Contribute to Low Life Satisfaction in U.S.</a
+                    >
+                  </h4>
+                  <div>
+                    It has been 60 years since the FDA first approved the birth control pill on May
+                    9, 1960. It emerged as an essential pillar of women's ability to have good
+                    quality of life. So less children more fun. Having to care for so many children
+                    can be quite cumbersome.
+                  </div>
+                </article>
+                <article class="ms_article">
+                  <div class="ms_img_div f_l">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside laz w_full">
+                        <img
+                          src="https://d.newsweek.com/en/full/1588413/man-tasered-greater-manchester-police.jpg?w=95&h=95&f=157e09532b4ced97c24a61a41472f17e"
+                          class="w_full pos_abs"
+                          alt="d"
+                        />
+                      </picture>
+                    </a>
+                  </div>
+                  <h4 class="ms_h4">
+                    <a href="#" class="ms_h4_a"
+                      >U.K. Police Force Taser Man in Front of Screaming Child as he keeps crying</a
+                    >
+                  </h4>
+                  <div>
+                    It has been 60 years since the FDA first approved the birth control pill on May
+                    9, 1960. It emerged as an essential pillar of women's ability to have good
+                    quality of life. So less children more fun. Having to care for so many children
+                    can be quite cumbersome.
+                  </div>
+                </article>
+                <article class="ms_article">
+                  <div class="ms_img_div f_l">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside laz w_full">
+                        <img
+                          src="https://d.newsweek.com/en/full/1588045/business-closed-coronavirus-arlington-virginia-2020.jpg?w=95&h=95&f=998c95c8b648f825867d183cf5e50b88"
+                          class="w_full pos_abs"
+                          alt="d"
+                        />
+                      </picture>
+                    </a>
+                  </div>
+                  <h4 class="ms_h4">
+                    <a href="#" class="ms_h4_a"
+                      >Coronavirus Could Devastate State Unemployment Systems After Recession
+                      Ends</a
+                    >
+                  </h4>
+                  <div>
+                    It has been 60 years since the FDA first approved the birth control pill on May
+                    9, 1960. It emerged as an essential pillar of women's ability to have good
+                    quality of life. So less children more fun. Having to care for so many children
+                    can be quite cumbersome.
+                  </div>
+                </article>
+                <article class="ms_article">
+                  <div class="ms_img_div f_l">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside laz w_full">
+                        <img
+                          src="https://d.newsweek.com/en/full/1588385/brazilian-president-jair-bolsonaro.jpg?w=95&h=95&f=4961b0d73680f4d47a4287fbd075b669"
+                          class="w_full pos_abs"
+                          alt="d"
+                        />
+                      </picture>
+                    </a>
+                  </div>
+                  <h4 class="ms_h4">
+                    <a href="#" class="ms_h4_a"
+                      >Brazil's Bolsonaro Plans 30-Person BBQ Despite Coronavirus Guidelines</a
+                    >
+                  </h4>
+                  <div>
+                    It has been 60 years since the FDA first approved the birth control pill on May
+                    9, 1960. It emerged as an essential pillar of women's ability to have good
+                    quality of life. So less children more fun. Having to care for so many children
+                    can be quite cumbersome.
+                  </div>
+                </article>
+                <article class="ms_article">
+                  <div class="ms_img_div f_l">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside laz w_full">
+                        <img
+                          src="https://d.newsweek.com/en/full/1588336/tyson-foods.jpg?w=95&h=95&f=a630e44080b7c02839e70a8700d3b3df"
+                          class="w_full pos_abs"
+                          alt="d"
+                        />
+                      </picture>
+                    </a>
+                  </div>
+                  <h4 class="ms_h4">
+                    <a href="#" class="ms_h4_a"
+                      >Over a Third of Workers at a Tyson Facility in Iowa Contracted COVID-19</a
+                    >
+                  </h4>
+                  <div>
+                    It has been 60 years since the FDA first approved the birth control pill on May
+                    9, 1960. It emerged as an essential pillar of women's ability to have good
+                    quality of life. So less children more fun. Having to care for so many children
+                    can be quite cumbersome.
+                  </div>
+                </article>
+                <article class="ms_article">
+                  <div class="ms_img_div f_l">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside laz w_full">
+                        <img
+                          src="https://d.newsweek.com/en/full/1588361/coronavirus-lab.jpg?w=95&h=95&f=ba837bc1abceeabf5267f6d7a300b9ba"
+                          class="w_full pos_abs"
+                          alt="d"
+                        />
+                      </picture>
+                    </a>
+                  </div>
+                  <h4 class="ms_h4">
+                    <a href="#" class="ms_h4_a"
+                      >Conspiracy Theories Sparked by Murder of Chinese-born Covid-19 Researcher</a
+                    >
+                  </h4>
+                  <div>
+                    It has been 60 years since the FDA first approved the birth control pill on May
+                    9, 1960. It emerged as an essential pillar of women's ability to have good
+                    quality of life. So less children more fun. Having to care for so many children
+                    can be quite cumbersome.
+                  </div>
+                </article>
+                <article class="ms_article">
+                  <div class="ms_img_div f_l">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside laz w_full">
+                        <img
+                          src="https://d.newsweek.com/en/full/1588342/coronavirus-mask.jpg?w=95&h=95&f=3dc5476694e49edf0d0db660af1e7a29"
+                          class="w_full pos_abs"
+                          alt="d"
+                        />
+                      </picture>
+                    </a>
+                  </div>
+                  <h4 class="ms_h4">
+                    <a href="#" class="ms_h4_a"
+                      >Americans Worry COVID-19 Restrictions Will Be Lifted Too Quickly: Poll</a
+                    >
+                  </h4>
+                  <div>
+                    It has been 60 years since the FDA first approved the birth control pill on May
+                    9, 1960. It emerged as an essential pillar of women's ability to have good
+                    quality of life. So less children more fun. Having to care for so many children
+                    can be quite cumbersome.
+                  </div>
+                </article>
+                <article class="ms_article">
+                  <div class="ms_img_div f_l">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside laz w_full">
+                        <img
+                          src="https://d.newsweek.com/en/full/1588215/mitch-mcconnell-democratic-challengers-ky-senate-race.jpg?w=95&h=95&f=5310ff8422de06deeb0827cb1e9df049"
+                          class="w_full pos_abs"
+                          alt="d"
+                        />
+                      </picture>
+                    </a>
+                  </div>
+                  <h4 class="ms_h4">
+                    <a href="#" class="ms_h4_a"
+                      >McConnell's Democratic Rivals See Ousting GOP Leader as Matter of Survival</a
+                    >
+                  </h4>
+                  <div>
+                    It has been 60 years since the FDA first approved the birth control pill on May
+                    9, 1960. It emerged as an essential pillar of women's ability to have good
+                    quality of life. So less children more fun. Having to care for so many children
+                    can be quite cumbersome.
+                  </div>
+                </article>
+                <article class="ms_article">
+                  <div class="ms_img_div f_l">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside laz w_full">
+                        <img
+                          src="https://d.newsweek.com/en/full/1588338/united-nations-secretary-general-antonio-guterres.jpg?w=95&h=95&f=2013a0e8d8aeab0d3c7d1c94541a843c"
+                          class="w_full pos_abs"
+                          alt="d"
+                        />
+                      </picture>
+                    </a>
+                  </div>
+                  <h4 class="ms_h4">
+                    <a href="#" class="ms_h4_a"
+                      >COVID-19 Has Unleashed 'Tsunami of Hate and Scaremongering': U.N. Chief</a
+                    >
+                  </h4>
+                  <div>
+                    It has been 60 years since the FDA first approved the birth control pill on May
+                    9, 1960. It emerged as an essential pillar of women's ability to have good
+                    quality of life. So less children more fun. Having to care for so many children
+                    can be quite cumbersome.
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="culture_stories d_min768_none order-">
+              <div class="title_block_light"><a href="#">HEROES OF THE PANDEMIC</a></div>
+              <div class="culture_items">
+                <div class="culture_item">
+                  <div class="img_d pos_rel">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside laz d_block w_full">
+                        <img
+                          src="https://d.newsweek.com/en/full/1582032/riya-ortiz-damayan-migrant-workers-association.jpg?w=397&h=397&f=53de83c7597de80f95461e7b0774eada"
+                          class="w_full pos_abs"
+                          alt="u"
+                        />
+                      </picture>
+                    </a>
+                    <div class="tags b_0 l_0 pos_abs">
+                      <a href="#" class="d_ib">
+                        Pandemic Heroes
+                      </a>
+                    </div>
+                  </div>
+                  <div class="info">
+                    <div class="title">
+                      <a href="#"
+                        >Organizer Helps Rebuild New York's Filipino Community Hit by COVID-19</a
+                      >
+                    </div>
+                    <div class="summary">
+                      "When this whole thing started what kept me up at night is the possibility of
+                      mass casualties in our community," Riya Ortiz told Newsweek.
+                    </div>
+                  </div>
+                </div>
+                <div class="culture_item">
+                  <div class="img_d pos_rel">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside laz d_block w_full">
+                        <img
+                          src="https://d.newsweek.com/en/full/1581628/sandra-sacco-face-masks-coronavirus.jpg?w=397&h=397&f=7892f6ddd82131592228622320b031ef"
+                          class="w_full pos_abs"
+                          alt="u"
+                        />
+                      </picture>
+                    </a>
+                    <div class="tags b_0 l_0 pos_abs">
+                      <a href="#" class="d_ib">
+                        Pandemic Heroes
+                      </a>
+                    </div>
+                  </div>
+                  <div class="info">
+                    <div class="title">
+                      <a href="#"
+                        >Tennessee Group Makes Coronavirus Face Masks for Local, International
+                        Use</a
+                      >
+                    </div>
+                    <div class="summary">
+                      "We're not selling anything," Sacco said Tuesday. "Every single bit of this is
+                      donation-only or nothing."
+                    </div>
+                  </div>
+                </div>
+                <div class="culture_item">
+                  <div class="img_d pos_rel">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside laz d_block w_full">
+                        <img
+                          src="https://d.newsweek.com/en/full/1578426/zoe-monterola-founder-six-feet-supplies.jpg?w=397&h=397&f=f7a624e81aa902878bb39d5fe83e971f"
+                          class="w_full pos_abs"
+                          alt="d"
+                        />
+                      </picture>
+                    </a>
+                    <div class="tags b_0 l_0 pos_abs">
+                      <a href="#" class="d_ib">
+                        Pandemic Heroes
+                      </a>
+                    </div>
+                  </div>
+                  <div class="info">
+                    <div class="title">
+                      <a href="#">Teenagers Shop for the Vulnerable During Coronavirus Emergency</a>
+                    </div>
+                    <div class="summary">
+                      "I almost cried," said a user of Six Feet Supplies, a charity started by
+                      teenagers who shop for those susceptible to COVID-19.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="title_block_light"><a href="#">Culture & Travel</a></div>
+              <div class="culture_items">
+                <div class="culture_item">
+                  <div class="img_d pos_rel">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside laz d_block w_full">
+                        <img
+                          src="https://d.newsweek.com/en/full/1586378/naomi-tomky.png?w=397&h=397&f=c5f3297afdbaeef9aab32c55079cf40d"
+                          class="w_full pos_abs"
+                          alt="u"
+                        />
+                      </picture>
+                    </a>
+                    <div class="tags b_0 l_0 pos_abs">
+                      <a href="#" class="d_ib">
+                        Baking
+                      </a>
+                    </div>
+                  </div>
+                  <div class="info">
+                    <div class="title">
+                      <a href="#">Beyond Baking Bread, What's Everyone Cooking in Lockdown?</a>
+                    </div>
+                    <div class="summary">
+                      The foodie authorities share with Newsweek they've seen an uptick in slow
+                      cooking, getting creative with food scraps and even virtual dinner parties.
+                    </div>
+                  </div>
+                </div>
+                <div class="culture_item">
+                  <div class="img_d pos_rel">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside laz d_block w_full">
+                        <img
+                          src="https://d.newsweek.com/en/full/1576391/cul-uncharted-coffee-banner.jpg?w=397&h=397&f=4d2409095121a97e6958cb0acb5c209d"
+                          class="w_full pos_abs"
+                          alt="u"
+                        />
+                      </picture>
+                    </a>
+                    <div class="tags b_0 l_0 pos_abs">
+                      <a href="#" class="d_ib">
+                        Travel
+                      </a>
+                    </div>
+                  </div>
+                  <div class="info">
+                    <div class="title">
+                      <a href="#">How The World Takes Its Coffee</a>
+                    </div>
+                    <div class="summary">
+                      Whether you prefer a coffee spiced with pepper, a half-caf venti no-foam soy
+                      latte from your favorite barista; or a coffee with cheese, here's a sampling
+                      of caffeinated rituals from across the globe.
+                    </div>
+                  </div>
+                </div>
+                <div class="culture_item">
+                  <div class="img_d pos_rel">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside laz d_block w_full">
+                        <img
+                          src="https://d.newsweek.com/en/full/1578426/zoe-monterola-founder-six-feet-supplies.jpg?w=397&h=397&f=f7a624e81aa902878bb39d5fe83e971f"
+                          class="w_full pos_abs"
+                          alt="d"
+                        />
+                      </picture>
+                    </a>
+                    <div class="tags b_0 l_0 pos_abs">
+                      <a href="#" class="d_ib">
+                        Star Wars
+                      </a>
+                    </div>
+                  </div>
+                  <div class="info">
+                    <div class="title">
+                      <a href="#">Relive the 'Star Wars' Saga at These Filming Locations</a>
+                    </div>
+                    <div class="summary">
+                      Fans may be lamenting the end of the 'Star Wars' series, but they can still
+                      visit these film locations and space-themed destinations.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="latest">
+              <div class="sub_feat">
+                <div class="title_block_light"><a href="#">The Latest</a></div>
+                <ul>
+                  <li class="sub_feat_li d_flex">
+                    <div class="ms_img_div">
+                      <a href="#" class="d_block">
+                        <picture class="laz lazyside">
+                          <img
+                            src="https://d.newsweek.com/en/full/1588740/coffee-shop-stock-image.jpg?w=95&h=95&f=df73c8350a6213da9100a24f3ca339ee"
+                            alt="d"
+                            class="pos_abs w_full"
+                          />
+                        </picture>
+                      </a>
+                    </div>
+                    <div class="info flex_1">
+                      <a href="#" class="subfeat_a">
+                        Colorado Restaurant Draws Large Crowd After Reopening in Defiance of Order
+                      </a>
+                    </div>
+                  </li>
+                  <li class="sub_feat_li d_flex">
+                    <div class="ms_img_div">
+                      <a href="#" class="d_block">
+                        <picture class="laz lazyside">
+                          <img
+                            src="https://d.newsweek.com/en/full/1588737/ahmaud-arbery-killing-protesters.jpg?w=95&h=95&f=75da2b05b951df7e442e43db2e5268c3"
+                            alt="d"
+                            class="pos_abs w_full"
+                          />
+                        </picture>
+                      </a>
+                    </div>
+                    <div class="info flex_1">
+                      <a href="#" class="subfeat_a">
+                        Georgia Man Arrested After Terror Threats Made to Ahmaud Arbery Protesters
+                      </a>
+                    </div>
+                  </li>
+                  <li class="sub_feat_li d_flex">
+                    <div class="ms_img_div">
+                      <a href="#" class="d_block">
+                        <picture class="laz lazyside">
+                          <img
+                            src="https://d.newsweek.com/en/full/1588377/billions-season-five-chris-rock-test.jpg?w=95&h=95&f=107d2d7235dd742f37fc8f58ac76996b"
+                            alt="d"
+                            class="pos_abs w_full"
+                          />
+                        </picture>
+                      </a>
+                    </div>
+                    <div class="info flex_1">
+                      <a href="#" class="subfeat_a">
+                        The Most 'Billions'-y Things That Happened on Sunday's 'Billions'
+                      </a>
+                    </div>
+                  </li>
+                  <li class="sub_feat_li d_flex">
+                    <div class="ms_img_div">
+                      <a href="#" class="d_block">
+                        <picture class="laz lazyside">
+                          <img
+                            src="https://d.newsweek.com/en/full/1588733/ahmaud-arbery-shooting-demonstration.jpg?w=95&h=95&l=0&t=0&f=0363e803e1455537a007cc8442b974fe"
+                            alt="d"
+                            class="pos_abs w_full"
+                          />
+                        </picture>
+                      </a>
+                    </div>
+                    <div class="info flex_1">
+                      <a href="#" class="subfeat_a">
+                        Georgia AG Requests DOJ to Probe Handling of Ahmaud Arbery Case
+                      </a>
+                    </div>
+                  </li>
+                  <li class="sub_feat_li d_flex">
+                    <div class="ms_img_div">
+                      <a href="#" class="d_block">
+                        <picture class="laz lazyside">
+                          <img
+                            src="https://d.newsweek.com/en/full/1588721/zion-williamson-duke.jpg?w=95&h=95&f=55b05ef2cd346821d390f892b1fc407d"
+                            alt="d"
+                            class="pos_abs w_full"
+                          />
+                        </picture>
+                      </a>
+                    </div>
+                    <div class="info flex_1">
+                      <a href="#" class="subfeat_a">
+                        Zion WIlliamson's Former Agent Claims He Received Improper Benefits at Duke
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <div class="sponsor">
+                <div class="sponsor_wrap pos_rel">
+                  <div class="category d_block pos_abs b_0 l_0 zi_1">
+                    sponsored insight
+                  </div>
+                  <div>
+                    <a href="#" class="d_block">
+                      <span class="sponsor_img si_6 d_block"></span>
+                    </a>
+                  </div>
+                </div>
+                <div class="info">
+                  <h3 class="d_ib">Singapore: Looking to the Future</h3>
+                  <div class="summary">
+                    Known worldwide as a top business, banking, and investment destination,
+                    Singapore has sustained its stellar international reputation for decades.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="newsletter">
+                <h2 class="n_title d_flex align-items-center">
+                  <span class="icon_n d_block"></span>
+                  SIGN UP FOR OUR NEWSLETTER
+                </h2>
+                <a href="#" class="d_ib lk c_w">Sign Up</a>
+                <br />
+                <a href="lk_5">
+                  Update your preferences »
+                </a>
+              </div>
+            </div>
+            <div>
+              <div class="sponsor">
+                <div class="sponsor_wrap pos_rel">
+                  <div class="category d_block pos_abs b_0 l_0 zi_1">
+                    sponsored insight
+                  </div>
+                  <div>
+                    <a href="#" class="d_block">
+                      <span class="sponsor_img si_7 d_block"></span>
+                    </a>
+                  </div>
+                </div>
+                <div class="info">
+                  <h3 class="d_ib">What Sets the Leading Liberal Arts Schools Apart?</h3>
+                  <div class="summary">
+                    There are a number of great Liberal Arts Schools in the USA today, but what
+                    qualities do the best of them have?
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="sponsor">
+                <div class="sponsor_wrap pos_rel">
+                  <div class="category d_block pos_abs b_0 l_0 zi_1">
+                    sponsored insight
+                  </div>
+                  <div>
+                    <a href="#" class="d_block">
+                      <span class="sponsor_img si_8 d_block"></span>
+                    </a>
+                  </div>
+                </div>
+                <div class="info">
+                  <h3 class="d_ib">What Qualities Make a Leading University?</h3>
+                  <div class="summary">
+                    A Leading University has to have a track record of producing well qualified,
+                    gifted and employable candidates. Which schools earn the accolade?
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="sponsor">
+                <div class="sponsor_wrap pos_rel">
+                  <div class="category d_block pos_abs b_0 l_0 zi_1">
+                    sponsored insight
+                  </div>
+                  <div>
+                    <a href="#" class="d_block">
+                      <span class="sponsor_img si_9 d_block"></span>
+                    </a>
+                  </div>
+                </div>
+                <div class="info">
+                  <h3 class="d_ib">How Can a Good Business Education Benefit You?</h3>
+                  <div class="summary">
+                    Enrolling at a good Business School might be the best investment you can make in
+                    your future, and while costs can be significant, the rewards are incalculable.
+                    Find out more.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="sponsor">
+                <div class="sponsor_wrap pos_rel">
+                  <div class="category d_block pos_abs b_0 l_0 zi_1">
+                    sponsored insight
+                  </div>
+                  <div>
+                    <a href="#" class="d_block">
+                      <span class="sponsor_img si_10 d_block"></span>
+                    </a>
+                  </div>
+                </div>
+                <div class="info">
+                  <h3 class="d_ib">Newsweek Special Edition: Food as Medicine</h3>
+                  <div class="summary">
+                    Humans have been using natural remedies like spices and herbs to heal common
+                    ailments for centuries. Now food science is proving many of those traditions
+                    true and innovating new ways to heal our bodies from the inside out. Discover
+                    the power of plant-based nutrition with this Newsweek Special Edition and start
+                    your journey to a healthier you.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="sponsor">
+                <div class="sponsor_wrap pos_rel">
+                  <div class="category d_block pos_abs b_0 l_0 zi_1">
+                    Rankings
+                  </div>
+                  <div>
+                    <a href="#" class="d_block">
+                      <span class="sponsor_img si_11 d_block"></span>
+                    </a>
+                  </div>
+                </div>
+                <div class="info">
+                  <h3 class="d_ib">Best Infection Prevention Products</h3>
+                  <div class="summary">
+                    During the coronavirus outbreak, health care is more important than ever. In
+                    Newsweek's first Best Health Care series, we highlight the best infection
+                    prevention products.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="extra">
+        <section class="in_magazine">
+          <div>
+            <div class="magazine">
+              <h2 class="n_title justify-content-center align-items-center d_flex">
+                <span class="icon_n"></span>
+                in the magazine
+              </h2>
+              <div class="row mag_row align-items-end">
+                <div class="col-md-3">
+                  <div class="pos_rel">
+                    <div class="img_d">
+                      <a href="#" class="d_block">
+                        <picture class="lazyside">
+                          <img
+                            src="https://d.newsweek.com/en/full/1589808/may-22-2020-cover.jpg?w=360&h=480&q=90&f=2ec2ef2650429fbfb36fe7bb86d88aee"
+                            alt="gh"
+                            class="w_full"
+                          />
+                        </picture>
+                      </a>
+                    </div>
+                    <div class="category d_block pos_abs b_0 l_0 zi_1">
+                      May 22 issue
+                    </div>
+                  </div>
+                  <a href="#" class="d-block ta_center lk lka">
+                    see all features
+                  </a>
+                </div>
+                <div class="col-md-9">
+                  <div class="row">
+                    <article class="col-md-4">
+                      <div class="img_d">
+                        <a href="#" class="d_block">
+                          <picture class="mag_pic lazyside">
+                            <img
+                              src="https://d.newsweek.com/en/full/1588266/fe-privacy-banner.jpg?w=466&h=311&l=52&t=49&q=90&f=1b2f415f5697889730c90acdc79c2a66"
+                              alt="i"
+                              class="mag_img w_full"
+                            />
+                          </picture>
+                        </a>
+                      </div>
+                      <div class="category mag_cat">
+                        <span class="mag_span d_ib">cover</span>
+                        <span class="d_ib"><a href="#">Health</a></span>
+                      </div>
+                      <h5>
+                        <a href="#" class="mag_a">
+                          Would You Let Government Track Your Smartphone To Help U.S. Reopen Sooner?
+                        </a>
+                      </h5>
+                    </article>
+                    <article class="col-md-4">
+                      <div class="img_d">
+                        <a href="#" class="d_block">
+                          <picture class="mag_pic lazyside">
+                            <img
+                              src="https://d.newsweek.com/en/full/1587245/fe-privacy-qa-crystal-watson-03.jpg?w=466&h=311&l=60&t=54&q=90&f=0e2bba98e17d1f385b30ef3813e485e4"
+                              alt="i"
+                              class="mag_img w_full"
+                            />
+                          </picture>
+                        </a>
+                      </div>
+                      <div class="category mag_cat">
+                        <span class="mag_span d_ib">Features</span>
+                        <span class="d_ib"><a href="#">Health</a></span>
+                      </div>
+                      <h5>
+                        <a href="#" class="mag_a">
+                          Without 100,000 Virus Contact Tracers, "We're Going to Be in Big Trouble"
+                        </a>
+                      </h5>
+                    </article>
+                    <article class="col-md-4">
+                      <div class="img_d">
+                        <a href="#" class="d_block">
+                          <picture class="mag_pic lazyside">
+                            <img
+                              src="https://d.newsweek.com/en/full/1288852/kevin-hassett.jpg?w=466&h=311&q=90&f=5cde11771e7ef9e36e681dc35b181fe4"
+                              alt="i"
+                              class="mag_img w_full"
+                            />
+                          </picture>
+                        </a>
+                      </div>
+                      <div class="category mag_cat">
+                        <span class="mag_span d_ib">Features</span>
+                        <span class="d_ib"><a href="#">Business</a></span>
+                      </div>
+                      <h5>
+                        <a href="#" class="mag_a">
+                          Why the U.S. Economy May Never Be the Same Again After Coronavirus
+                        </a>
+                      </h5>
+                    </article>
+                  </div>
+                </div>
+              </div>
+              <div class="mag_bottom row">
+                <article class="col-md-3">
+                  <div class="img_d">
+                    <a href="#" class="d_block">
+                      <picture class="mag_pic lazyside">
+                        <img
+                          src="https://d.newsweek.com/en/full/1586523/per-fastcash.jpg?w=466&h=311&l=50&t=47&q=90&f=92710e3df87d73b3527948471d73da7e"
+                          alt="i"
+                          class="mag_img w_full"
+                        />
+                      </picture>
+                    </a>
+                  </div>
+                  <div class="category mag_cat">
+                    <span class="mag_span d_ib">periscope</span>
+                    <span class="d_ib"><a href="#">culture</a></span>
+                  </div>
+                  <h5>
+                    <a href="#" class="mag_a">
+                      Stimulus Check Isn't Enough? Here Are Five Ways to Come Up With Extra Cash
+                    </a>
+                  </h5>
+                </article>
+                <article class="col-md-3">
+                  <div class="img_d">
+                    <a href="#" class="d_block">
+                      <picture class="mag_pic lazyside">
+                        <img
+                          src="https://d.newsweek.com/en/full/1587215/hor-thentheystoppedtalking-banner.jpg?w=466&h=311&l=52&t=37&xy=626-0-2500-1251&f=bffe19dbb43dd3a8159b0fa8bbe3c420"
+                          alt="i"
+                          class="mag_img w_full"
+                        />
+                      </picture>
+                    </a>
+                  </div>
+                  <div class="category mag_cat">
+                    <span class="mag_span d_ib">Horizon</span>
+                    <span class="d_ib"><a href="#">culture</a></span>
+                  </div>
+                  <h5>
+                    <a href="#" class="mag_a">
+                      Bestselling Author Judith Warner on How Parents Screw Up Middle Schoolers
+                    </a>
+                  </h5>
+                </article>
+                <article class="col-md-3">
+                  <div class="img_d">
+                    <a href="#" class="d_block">
+                      <picture class="mag_pic lazyside">
+                        <img
+                          src="https://d.newsweek.com/en/full/1587154/cul-ps-weiner.jpg?w=466&h=311&l=47&t=34&q=90&f=a0d1b5c34a1155df6f8d9a5271176478"
+                          alt="i"
+                          class="mag_img w_full"
+                        />
+                      </picture>
+                    </a>
+                  </div>
+                  <div class="category mag_cat">
+                    <span class="mag_span d_ib">downtime</span>
+                    <span class="d_ib"><a href="#">culture</a></span>
+                  </div>
+                  <h5>
+                    <a href="#" class="mag_a">
+                      With 'Big Summer,' Jennifer Weiner is Still the Queen of the Summer Read
+                    </a>
+                  </h5>
+                </article>
+                <article class="col-md-3">
+                  <div class="no_m">
+                    <div class="big_shot">
+                      <div class="pos_rel">
+                        <div class="img_d pos_rel">
+                          <a href="#" class="d_block pos_abs t_0 r_0 l_0 b_0 zi_2"></a>
+                          <picture class="bs_pic lazyside">
+                            <img
+                              src="https://d.newsweek.com/en/full/1589370/salute-stars.jpg?w=480&h=320&l=50&t=59&q=90&f=076fac83d1318552bb891a97c9ed2798"
+                              alt="s"
+                              class="mag_img w_full"
+                            />
+                          </picture>
+                        </div>
+                        <div class="in_f category no_m pos_abs l_0 b_0 zi_1">In focus</div>
+                      </div>
+                      <h5 class="big_shot_h5">
+                        <a href="big_shot_a">SALUTE TO THE STARS</a>
+                      </h5>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="editors_pick">
+          <div>
+            <h2 class="n_title justify-content-center align-items-center d_flex">
+              <span class="icon_n"></span>
+              editor's pick
+            </h2>
+            <div class="editors row">
+              <article class="col-lg-3 col-md-6 editor">
+                <div class="e_wrap pos_rel">
+                  <div class="d_block category e_cat no_m pos_abs l_0 b_0 zi_1">
+                    <a href="#">U.s</a>
+                  </div>
+                  <div class="img_d">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside">
+                        <img
+                          src="https://d.newsweek.com/en/full/1590817/kroger-grocery-stores-hero-pay.jpg?w=397&h=295&f=866bd047e2ea39ca77a2e1edf6300318"
+                          alt="u"
+                          class="w_full"
+                        />
+                      </picture>
+                    </a>
+                  </div>
+                </div>
+                <h3>
+                  <a href="#" class="feat_a">
+                    Kroger Replaces $2 an Hour 'Hero Pay' Increase With One-Time $400 Bonus
+                  </a>
+                </h3>
+                <div class="summary">
+                  Local unions have criticized the grocery chain for ending its $2 an hour "hero
+                  pay" bonus, but the store says it's doing much more to support its workers during
+                  this time.
+                </div>
+              </article>
+              <article class="col-lg-3 col-md-6 editor">
+                <div class="e_wrap pos_rel">
+                  <div class="d_block category e_cat no_m pos_abs l_0 b_0 zi_1">
+                    <a href="#">World</a>
+                  </div>
+                  <div class="img_d">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside">
+                        <img
+                          src="https://d.newsweek.com/en/full/1590740/china-wuhan-hubei-novel-coronavirus-sample.jpg?w=397&h=295&f=fcd52f68a15bedef4e7227b4fcc43d92"
+                          alt="u"
+                          class="w_full"
+                        />
+                      </picture>
+                    </a>
+                  </div>
+                </div>
+                <h3>
+                  <a href="#" class="feat_a">
+                    China Admits It Destroyed Early Coronavirus, Confirming U.S. Accusation
+                  </a>
+                </h3>
+                <div class="summary">
+                  China National Health Commission official Liu Dengfeng said some early COVID-19
+                  samples were destroyed after the disease was deemed too dangerous to handle for
+                  some facilities.
+                </div>
+              </article>
+              <article class="col-lg-3 col-md-6 editor">
+                <div class="e_wrap pos_rel">
+                  <div class="d_block category e_cat no_m pos_abs l_0 b_0 zi_1">
+                    <a href="#">U.s</a>
+                  </div>
+                  <div class="img_d">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside">
+                        <img
+                          src="https://d.newsweek.com/en/full/1590777/why-democrats-buck-own-party-massive-stimulus.jpg?w=397&h=295&f=3e24676a6159bb26a2ad5f5fc9707cc1"
+                          alt="u"
+                          class="w_full"
+                        />
+                      </picture>
+                    </a>
+                  </div>
+                </div>
+                <h3>
+                  <a href="#" class="feat_a">
+                    Why Some Dems Bucked Their Own Party to Oppose a $3 Trillion Relief Package
+                  </a>
+                </h3>
+                <div class="summary">
+                  Democratic leadership struggled to appease its own caucus, resulting in some
+                  moderates and one liberal crossing the aisle and joining Republicans to vote
+                  against the massive economic relief package.
+                </div>
+              </article>
+              <article class="col-lg-3 col-md-6 editor">
+                <div class="e_wrap pos_rel">
+                  <div class="d_block category e_cat no_m pos_abs l_0 b_0 zi_1">
+                    <a href="#">News</a>
+                  </div>
+                  <div class="img_d">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside">
+                        <img
+                          src="https://d.newsweek.com/en/full/1590727/jair-bolsonaro.jpg?w=397&h=295&f=adca2f4cc445ff9f74b44af0f9954e2c"
+                          alt="u"
+                          class="w_full"
+                        />
+                      </picture>
+                    </a>
+                  </div>
+                </div>
+                <h3>
+                  <a href="#" class="feat_a">
+                    Brazil Health Minister Resigns After Disagreement Over Pandemic Response
+                  </a>
+                </h3>
+                <div class="summary">
+                  Nelson Teich is the second Brazilian health minister to resign in the past month.
+                  Teich was appointed on April 17 after Bolsonaro dismissed Luiz Henrique Mandetta,
+                  who also resisted the use of chloroquine and supported lockdown measures.
+                </div>
+              </article>
+              <article class="col-lg-3 col-md-6 editor">
+                <div class="e_wrap pos_rel">
+                  <div class="d_block category e_cat no_m pos_abs l_0 b_0 zi_1">
+                    <a href="#">U.s</a>
+                  </div>
+                  <div class="img_d">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside">
+                        <img
+                          src="https://d.newsweek.com/en/full/1590819/elon-musk.jpg?w=397&h=295&f=96c7cf910850b028ae2b64be943a66d6"
+                          alt="u"
+                          class="w_full"
+                        />
+                      </picture>
+                    </a>
+                  </div>
+                </div>
+                <h3>
+                  <a href="#" class="feat_a">
+                    Houston Mayor Invites Musk to Bring Tesla HQ to City, Cites Space History
+                  </a>
+                </h3>
+                <div class="summary">
+                  Despite Mayor Turner's letter to Elon Musk, which referenced Houston's place in
+                  space travel history, Tesla may choose to relocate to another area of Texas.
+                </div>
+              </article>
+              <article class="col-lg-3 col-md-6 editor">
+                <div class="e_wrap pos_rel">
+                  <div class="d_block category e_cat no_m pos_abs l_0 b_0 zi_1">
+                    <a href="#">Sports</a>
+                  </div>
+                  <div class="img_d">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside">
+                        <img
+                          src="https://d.newsweek.com/en/full/1590796/kobe-bryant.jpg?w=397&h=295&f=f5f07dd36459d8c72a97f7aeaef94992"
+                          alt="u"
+                          class="w_full"
+                        />
+                      </picture>
+                    </a>
+                  </div>
+                </div>
+                <h3>
+                  <a href="#" class="feat_a">
+                    Autopsy For Pilot in Kobe Bryant Helicopter Crash Shows No Drugs or Alcohol
+                  </a>
+                </h3>
+                <div class="summary">
+                  NBA legend Kobe Bryant and his daughter, Gianna, were among nine people killed
+                  during a January 26 flight.
+                </div>
+              </article>
+              <article class="col-lg-3 col-md-6 editor">
+                <div class="e_wrap pos_rel">
+                  <div class="d_block category e_cat no_m pos_abs l_0 b_0 zi_1">
+                    <a href="#">U.s</a>
+                  </div>
+                  <div class="img_d">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside">
+                        <img
+                          src="https://d.newsweek.com/en/full/1590803/jc-penney.jpg?w=397&h=295&f=79510c9ef670ccb34a8faecc26175afa"
+                          alt="u"
+                          class="w_full"
+                        />
+                      </picture>
+                    </a>
+                  </div>
+                </div>
+                <h3>
+                  <a href="#" class="feat_a">
+                    J.C. Penney, Which Survived the Great Depression, Succumbs to Lockdowns
+                  </a>
+                </h3>
+                <div class="summary">
+                  The 188-year-old retailer announced Friday afternoon that it would be filing for
+                  Chapter 11 bankruptcy, and closing a number of its stores.
+                </div>
+              </article>
+              <article class="col-lg-3 col-md-6 editor">
+                <div class="e_wrap pos_rel">
+                  <div class="d_block category e_cat no_m pos_abs l_0 b_0 zi_1">
+                    <a href="#">culture</a>
+                  </div>
+                  <div class="img_d">
+                    <a href="#" class="d_block">
+                      <picture class="lazyside">
+                        <img
+                          src="https://d.newsweek.com/en/full/1590701/now-that-snl-done-season-try-these-other-comedy-shows.jpg?w=397&h=295&f=8dc2a92c6ff2bc546759172f636fc4ad"
+                          alt="u"
+                          class="w_full"
+                        />
+                      </picture>
+                    </a>
+                  </div>
+                </div>
+                <h3>
+                  <a href="#" class="feat_a">
+                    Now That 'SNL' Is Done for the Season, Try These Other Comedy Shows
+                  </a>
+                </h3>
+                <div class="summary">
+                  You can binge-watch these comedies all at once or stretch it out till fall.
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <section class="section_picks">
+          <h2 class="d-none">Section Picks</h2>
+          <div>
+            <div class="section">
+              <div class="title_block_light block_title">
+                <a href="#">U.S.</a>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <article>
+                    <div class="img_d">
+                      <a href="#" class="d_block">
+                        <picture class="lazyside">
+                          <img
+                            src="https://d.newsweek.com/en/full/1591149/new-jersey.jpg?w=397&h=265&f=e3f2ccf388fdc50179dcd94278660a35"
+                            alt="o"
+                            class="w_full"
+                          />
+                        </picture>
+                      </a>
+                    </div>
+                    <h4 class="section_h4">
+                      <a href="#" class="feat_a">
+                        N.J. Gym Reopens Despite Lockdown: 'We're Ready for Whatever Consequences'
+                      </a>
+                    </h4>
+                  </article>
+                </div>
+                <div class="col-md-4">
+                  <article>
+                    <div class="img_d">
+                      <a href="#" class="d_block">
+                        <picture class="lazyside">
+                          <img
+                            src="https://d.newsweek.com/en/full/1591087/gun-store-washington.jpg?w=397&h=265&f=a89491f8124cc258602ee38b208be558"
+                            alt="o"
+                            class="w_full"
+                          />
+                        </picture>
+                      </a>
+                    </div>
+                    <h4 class="section_h4">
+                      <a href="#" class="feat_a">
+                        Poll Shows Increasing Support For Gun Background Checks During Pandemic
+                      </a>
+                    </h4>
+                  </article>
+                </div>
+                <div class="col-md-4">
+                  <div class="sub_feat">
+                    <ul>
+                      <li class="sub_feat_li d_flex">
+                        <div class="ms_img_div">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside">
+                              <img
+                                src="https://d.newsweek.com/en/full/1591095/president-donald-trump-wh-south-lawn.jpg?w=397&h=265&f=a81a86b9a3728fa3b181c933509e80c4"
+                                alt="d"
+                                class=" w_full"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <div class="info flex_1">
+                          <a href="#" class="subfeat_a">
+                            Key Swing State Voters Disapprove of Donald Trump's Coronavirus Handling
+                          </a>
+                        </div>
+                      </li>
+                      <li class="sub_feat_li d_flex">
+                        <div class="ms_img_div">
+                          <a href="#" class="d_block">
+                            <picture class=" lazyside">
+                              <img
+                                src="https://d.newsweek.com/en/full/1591110/new-jersey-salon-coronavirus.jpg?w=95&h=95&f=eeb6902ace56aa13ebdcab6445ffeda9"
+                                alt="d"
+                                class="w_full"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <div class="info flex_1">
+                          <a href="#" class="subfeat_a">
+                            N.J. Salon Owner Says He's Opening With or Without Governor's Approval
+                          </a>
+                        </div>
+                      </li>
+                      <li class="sub_feat_li d_flex">
+                        <div class="ms_img_div">
+                          <a href="#" class="d_block">
+                            <picture class=" lazyside">
+                              <img
+                                src="https://d.newsweek.com/en/full/1591109/miami.jpg?w=95&h=95&l=0&t=0&f=e560f963bc35801ed3e9e9f3a6954bf1"
+                                alt="d"
+                                class="w_full"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <div class="info flex_1">
+                          <a href="#" class="subfeat_a">
+                            Florida Family Shaken up After SUV Crashes Through Fence, Flies Across
+                            Pool
+                          </a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="title_block_light block_title">
+                <a href="#">World</a>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <article>
+                    <div class="img_d">
+                      <a href="#" class="d_block">
+                        <picture class="lazyside">
+                          <img
+                            src="https://d.newsweek.com/en/full/1591149/new-jersey.jpg?w=397&h=265&f=e3f2ccf388fdc50179dcd94278660a35"
+                            alt="o"
+                            class="w_full"
+                          />
+                        </picture>
+                      </a>
+                    </div>
+                    <h4 class="section_h4">
+                      <a href="#" class="feat_a">
+                        N.J. Gym Reopens Despite Lockdown: 'We're Ready for Whatever Consequences'
+                      </a>
+                    </h4>
+                  </article>
+                </div>
+                <div class="col-md-4">
+                  <article>
+                    <div class="img_d">
+                      <a href="#" class="d_block">
+                        <picture class="lazyside">
+                          <img
+                            src="https://d.newsweek.com/en/full/1591087/gun-store-washington.jpg?w=397&h=265&f=a89491f8124cc258602ee38b208be558"
+                            alt="o"
+                            class="w_full"
+                          />
+                        </picture>
+                      </a>
+                    </div>
+                    <h4 class="section_h4">
+                      <a href="#" class="feat_a">
+                        Poll Shows Increasing Support For Gun Background Checks During Pandemic
+                      </a>
+                    </h4>
+                  </article>
+                </div>
+                <div class="col-md-4">
+                  <div class="sub_feat">
+                    <ul>
+                      <li class="sub_feat_li d_flex">
+                        <div class="ms_img_div">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside">
+                              <img
+                                src="https://d.newsweek.com/en/full/1591095/president-donald-trump-wh-south-lawn.jpg?w=397&h=265&f=a81a86b9a3728fa3b181c933509e80c4"
+                                alt="d"
+                                class=" w_full"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <div class="info flex_1">
+                          <a href="#" class="subfeat_a">
+                            Key Swing State Voters Disapprove of Donald Trump's Coronavirus Handling
+                          </a>
+                        </div>
+                      </li>
+                      <li class="sub_feat_li d_flex">
+                        <div class="ms_img_div">
+                          <a href="#" class="d_block">
+                            <picture class=" lazyside">
+                              <img
+                                src="https://d.newsweek.com/en/full/1591110/new-jersey-salon-coronavirus.jpg?w=95&h=95&f=eeb6902ace56aa13ebdcab6445ffeda9"
+                                alt="d"
+                                class="w_full"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <div class="info flex_1">
+                          <a href="#" class="subfeat_a">
+                            N.J. Salon Owner Says He's Opening With or Without Governor's Approval
+                          </a>
+                        </div>
+                      </li>
+                      <li class="sub_feat_li d_flex">
+                        <div class="ms_img_div">
+                          <a href="#" class="d_block">
+                            <picture class=" lazyside">
+                              <img
+                                src="https://d.newsweek.com/en/full/1591109/miami.jpg?w=95&h=95&l=0&t=0&f=e560f963bc35801ed3e9e9f3a6954bf1"
+                                alt="d"
+                                class="w_full"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <div class="info flex_1">
+                          <a href="#" class="subfeat_a">
+                            Florida Family Shaken up After SUV Crashes Through Fence, Flies Across
+                            Pool
+                          </a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="title_block_light block_title">
+                <a href="#">Business</a>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <article>
+                    <div class="img_d">
+                      <a href="#" class="d_block">
+                        <picture class="lazyside">
+                          <img
+                            src="https://d.newsweek.com/en/full/1591149/new-jersey.jpg?w=397&h=265&f=e3f2ccf388fdc50179dcd94278660a35"
+                            alt="o"
+                            class="w_full"
+                          />
+                        </picture>
+                      </a>
+                    </div>
+                    <h4 class="section_h4">
+                      <a href="#" class="feat_a">
+                        N.J. Gym Reopens Despite Lockdown: 'We're Ready for Whatever Consequences'
+                      </a>
+                    </h4>
+                  </article>
+                </div>
+                <div class="col-md-4">
+                  <article>
+                    <div class="img_d">
+                      <a href="#" class="d_block">
+                        <picture class="lazyside">
+                          <img
+                            src="https://d.newsweek.com/en/full/1591087/gun-store-washington.jpg?w=397&h=265&f=a89491f8124cc258602ee38b208be558"
+                            alt="o"
+                            class="w_full"
+                          />
+                        </picture>
+                      </a>
+                    </div>
+                    <h4 class="section_h4">
+                      <a href="#" class="feat_a">
+                        Poll Shows Increasing Support For Gun Background Checks During Pandemic
+                      </a>
+                    </h4>
+                  </article>
+                </div>
+                <div class="col-md-4">
+                  <div class="sub_feat">
+                    <ul>
+                      <li class="sub_feat_li d_flex">
+                        <div class="ms_img_div">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside">
+                              <img
+                                src="https://d.newsweek.com/en/full/1591095/president-donald-trump-wh-south-lawn.jpg?w=397&h=265&f=a81a86b9a3728fa3b181c933509e80c4"
+                                alt="d"
+                                class=" w_full"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <div class="info flex_1">
+                          <a href="#" class="subfeat_a">
+                            Key Swing State Voters Disapprove of Donald Trump's Coronavirus Handling
+                          </a>
+                        </div>
+                      </li>
+                      <li class="sub_feat_li d_flex">
+                        <div class="ms_img_div">
+                          <a href="#" class="d_block">
+                            <picture class=" lazyside">
+                              <img
+                                src="https://d.newsweek.com/en/full/1591110/new-jersey-salon-coronavirus.jpg?w=95&h=95&f=eeb6902ace56aa13ebdcab6445ffeda9"
+                                alt="d"
+                                class="w_full"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <div class="info flex_1">
+                          <a href="#" class="subfeat_a">
+                            N.J. Salon Owner Says He's Opening With or Without Governor's Approval
+                          </a>
+                        </div>
+                      </li>
+                      <li class="sub_feat_li d_flex">
+                        <div class="ms_img_div">
+                          <a href="#" class="d_block">
+                            <picture class=" lazyside">
+                              <img
+                                src="https://d.newsweek.com/en/full/1591109/miami.jpg?w=95&h=95&l=0&t=0&f=e560f963bc35801ed3e9e9f3a6954bf1"
+                                alt="d"
+                                class="w_full"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <div class="info flex_1">
+                          <a href="#" class="subfeat_a">
+                            Florida Family Shaken up After SUV Crashes Through Fence, Flies Across
+                            Pool
+                          </a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="title_block_light block_title">
+                <a href="#">Tech & Science</a>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <article>
+                    <div class="img_d">
+                      <a href="#" class="d_block">
+                        <picture class="lazyside">
+                          <img
+                            src="https://d.newsweek.com/en/full/1591149/new-jersey.jpg?w=397&h=265&f=e3f2ccf388fdc50179dcd94278660a35"
+                            alt="o"
+                            class="w_full"
+                          />
+                        </picture>
+                      </a>
+                    </div>
+                    <h4 class="section_h4">
+                      <a href="#" class="feat_a">
+                        N.J. Gym Reopens Despite Lockdown: 'We're Ready for Whatever Consequences'
+                      </a>
+                    </h4>
+                  </article>
+                </div>
+                <div class="col-md-4">
+                  <article>
+                    <div class="img_d">
+                      <a href="#" class="d_block">
+                        <picture class="lazyside">
+                          <img
+                            src="https://d.newsweek.com/en/full/1591087/gun-store-washington.jpg?w=397&h=265&f=a89491f8124cc258602ee38b208be558"
+                            alt="o"
+                            class="w_full"
+                          />
+                        </picture>
+                      </a>
+                    </div>
+                    <h4 class="section_h4">
+                      <a href="#" class="feat_a">
+                        Poll Shows Increasing Support For Gun Background Checks During Pandemic
+                      </a>
+                    </h4>
+                  </article>
+                </div>
+                <div class="col-md-4">
+                  <div class="sub_feat">
+                    <ul>
+                      <li class="sub_feat_li d_flex">
+                        <div class="ms_img_div">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside">
+                              <img
+                                src="https://d.newsweek.com/en/full/1591095/president-donald-trump-wh-south-lawn.jpg?w=397&h=265&f=a81a86b9a3728fa3b181c933509e80c4"
+                                alt="d"
+                                class=" w_full"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <div class="info flex_1">
+                          <a href="#" class="subfeat_a">
+                            Key Swing State Voters Disapprove of Donald Trump's Coronavirus Handling
+                          </a>
+                        </div>
+                      </li>
+                      <li class="sub_feat_li d_flex">
+                        <div class="ms_img_div">
+                          <a href="#" class="d_block">
+                            <picture class=" lazyside">
+                              <img
+                                src="https://d.newsweek.com/en/full/1591110/new-jersey-salon-coronavirus.jpg?w=95&h=95&f=eeb6902ace56aa13ebdcab6445ffeda9"
+                                alt="d"
+                                class="w_full"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <div class="info flex_1">
+                          <a href="#" class="subfeat_a">
+                            N.J. Salon Owner Says He's Opening With or Without Governor's Approval
+                          </a>
+                        </div>
+                      </li>
+                      <li class="sub_feat_li d_flex">
+                        <div class="ms_img_div">
+                          <a href="#" class="d_block">
+                            <picture class=" lazyside">
+                              <img
+                                src="https://d.newsweek.com/en/full/1591109/miami.jpg?w=95&h=95&l=0&t=0&f=e560f963bc35801ed3e9e9f3a6954bf1"
+                                alt="d"
+                                class="w_full"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <div class="info flex_1">
+                          <a href="#" class="subfeat_a">
+                            Florida Family Shaken up After SUV Crashes Through Fence, Flies Across
+                            Pool
+                          </a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="title_block_light block_title">
+                <a href="#">Culture</a>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <article>
+                    <div class="img_d">
+                      <a href="#" class="d_block">
+                        <picture class="lazyside">
+                          <img
+                            src="https://d.newsweek.com/en/full/1591149/new-jersey.jpg?w=397&h=265&f=e3f2ccf388fdc50179dcd94278660a35"
+                            alt="o"
+                            class="w_full"
+                          />
+                        </picture>
+                      </a>
+                    </div>
+                    <h4 class="section_h4">
+                      <a href="#" class="feat_a">
+                        N.J. Gym Reopens Despite Lockdown: 'We're Ready for Whatever Consequences'
+                      </a>
+                    </h4>
+                  </article>
+                </div>
+                <div class="col-md-4">
+                  <article>
+                    <div class="img_d">
+                      <a href="#" class="d_block">
+                        <picture class="lazyside">
+                          <img
+                            src="https://d.newsweek.com/en/full/1591087/gun-store-washington.jpg?w=397&h=265&f=a89491f8124cc258602ee38b208be558"
+                            alt="o"
+                            class="w_full"
+                          />
+                        </picture>
+                      </a>
+                    </div>
+                    <h4 class="section_h4">
+                      <a href="#" class="feat_a">
+                        Poll Shows Increasing Support For Gun Background Checks During Pandemic
+                      </a>
+                    </h4>
+                  </article>
+                </div>
+                <div class="col-md-4">
+                  <div class="sub_feat">
+                    <ul>
+                      <li class="sub_feat_li d_flex">
+                        <div class="ms_img_div">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside">
+                              <img
+                                src="https://d.newsweek.com/en/full/1591095/president-donald-trump-wh-south-lawn.jpg?w=397&h=265&f=a81a86b9a3728fa3b181c933509e80c4"
+                                alt="d"
+                                class=" w_full"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <div class="info flex_1">
+                          <a href="#" class="subfeat_a">
+                            Key Swing State Voters Disapprove of Donald Trump's Coronavirus Handling
+                          </a>
+                        </div>
+                      </li>
+                      <li class="sub_feat_li d_flex">
+                        <div class="ms_img_div">
+                          <a href="#" class="d_block">
+                            <picture class=" lazyside">
+                              <img
+                                src="https://d.newsweek.com/en/full/1591110/new-jersey-salon-coronavirus.jpg?w=95&h=95&f=eeb6902ace56aa13ebdcab6445ffeda9"
+                                alt="d"
+                                class="w_full"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <div class="info flex_1">
+                          <a href="#" class="subfeat_a">
+                            N.J. Salon Owner Says He's Opening With or Without Governor's Approval
+                          </a>
+                        </div>
+                      </li>
+                      <li class="sub_feat_li d_flex">
+                        <div class="ms_img_div">
+                          <a href="#" class="d_block">
+                            <picture class=" lazyside">
+                              <img
+                                src="https://d.newsweek.com/en/full/1591109/miami.jpg?w=95&h=95&l=0&t=0&f=e560f963bc35801ed3e9e9f3a6954bf1"
+                                alt="d"
+                                class="w_full"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <div class="info flex_1">
+                          <a href="#" class="subfeat_a">
+                            Florida Family Shaken up After SUV Crashes Through Fence, Flies Across
+                            Pool
+                          </a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="title_block_light block_title">
+                <a href="#">Sports</a>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <article>
+                    <div class="img_d">
+                      <a href="#" class="d_block">
+                        <picture class="lazyside">
+                          <img
+                            src="https://d.newsweek.com/en/full/1591149/new-jersey.jpg?w=397&h=265&f=e3f2ccf388fdc50179dcd94278660a35"
+                            alt="o"
+                            class="w_full"
+                          />
+                        </picture>
+                      </a>
+                    </div>
+                    <h4 class="section_h4">
+                      <a href="#" class="feat_a">
+                        N.J. Gym Reopens Despite Lockdown: 'We're Ready for Whatever Consequences'
+                      </a>
+                    </h4>
+                  </article>
+                </div>
+                <div class="col-md-4">
+                  <article>
+                    <div class="img_d">
+                      <a href="#" class="d_block">
+                        <picture class="lazyside">
+                          <img
+                            src="https://d.newsweek.com/en/full/1591087/gun-store-washington.jpg?w=397&h=265&f=a89491f8124cc258602ee38b208be558"
+                            alt="o"
+                            class="w_full"
+                          />
+                        </picture>
+                      </a>
+                    </div>
+                    <h4 class="section_h4">
+                      <a href="#" class="feat_a">
+                        Poll Shows Increasing Support For Gun Background Checks During Pandemic
+                      </a>
+                    </h4>
+                  </article>
+                </div>
+                <div class="col-md-4">
+                  <div class="sub_feat">
+                    <ul>
+                      <li class="sub_feat_li d_flex">
+                        <div class="ms_img_div">
+                          <a href="#" class="d_block">
+                            <picture class="lazyside">
+                              <img
+                                src="https://d.newsweek.com/en/full/1591095/president-donald-trump-wh-south-lawn.jpg?w=397&h=265&f=a81a86b9a3728fa3b181c933509e80c4"
+                                alt="d"
+                                class=" w_full"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <div class="info flex_1">
+                          <a href="#" class="subfeat_a">
+                            Key Swing State Voters Disapprove of Donald Trump's Coronavirus Handling
+                          </a>
+                        </div>
+                      </li>
+                      <li class="sub_feat_li d_flex">
+                        <div class="ms_img_div">
+                          <a href="#" class="d_block">
+                            <picture class=" lazyside">
+                              <img
+                                src="https://d.newsweek.com/en/full/1591110/new-jersey-salon-coronavirus.jpg?w=95&h=95&f=eeb6902ace56aa13ebdcab6445ffeda9"
+                                alt="d"
+                                class="w_full"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <div class="info flex_1">
+                          <a href="#" class="subfeat_a">
+                            N.J. Salon Owner Says He's Opening With or Without Governor's Approval
+                          </a>
+                        </div>
+                      </li>
+                      <li class="sub_feat_li d_flex">
+                        <div class="ms_img_div">
+                          <a href="#" class="d_block">
+                            <picture class=" lazyside">
+                              <img
+                                src="https://d.newsweek.com/en/full/1591109/miami.jpg?w=95&h=95&l=0&t=0&f=e560f963bc35801ed3e9e9f3a6954bf1"
+                                alt="d"
+                                class="w_full"
+                              />
+                            </picture>
+                          </a>
+                        </div>
+                        <div class="info flex_1">
+                          <a href="#" class="subfeat_a">
+                            Florida Family Shaken up After SUV Crashes Through Fence, Flies Across
+                            Pool
+                          </a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="subscribe_block">
+        <div class="row">
+          <div class="col-xl-8 col-lg-7 sub_div">
+            <div class="title_block_light subscribe_title">Subscribe</div>
+            <div class="flex_1 align-items-center sub_block">
+              <div class="s_img pos_rel fn">
+                <div class="mag_thumb prev">
+                  <img
+                    src="https://d.newsweek.com/en/full/1585087/may-08-15-2020-cover.jpg?w=170&q=95&f=c4d10af6474d34e586607b280b6589f0"
+                    alt="k"
+                    class="w_full"
+                  />
+                </div>
+                <div class="mag_thumb current">
+                  <img
+                    src="https://d.newsweek.com/en/full/1589808/may-22-2020-cover.jpg?w=170&q=95&f=96101d0d430bef83aee5a95169c9b655"
+                    alt="r"
+                    class="w_full"
+                  />
+                </div>
+              </div>
+              <div class="flex_1 s_info">
+                <h3 class="subscribe_h3 d_ib">
+                  In-depth Stories You Don't See Elsewhere About Topics You Want to Read!
+                </h3>
+                <p class="subscribe_block_p">
+                  All Access + Weekly Delivery.
+                  <br />
+                  Choose A Membership That's Perfect for You!
+                </p>
+                <button
+                  type="button"
+                  class="c_p subscribe_button subscribe_block_button d_ib pos_rel"
+                >
+                  subscribe
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-5 sub_div">
+            <div class="title_block_light subscribe_title">Newslettter</div>
+            <div class="d_flex flex_1">
+              <div class="nl_img fn"></div>
+              <div class="flex_1 s_info s_in">
+                <h3 class="subscribe_h3 d_ib">
+                  The Starting 5
+                </h3>
+                <p class="subscribe_block_p">
+                  See why nearly a quarter of a million subscribers begin their day with the
+                  Starting 5.
+                </p>
+                <form>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email Address"
+                    class="w_full subscribe_input form_text"
+                  />
+                  <input
+                    type="submit"
+                    name="email"
+                    class="w_full subscribe_input form_submit c_p"
+                    value="free sign-up"
+                  />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="container-fluid footer pos_rel cont">
+      <div class="footer_head justify-content-between align-items-end">
+        <div class="footer_logo align-items-end">
+          <a href="#" class="footer_brand">
+            <svg
+              version="1.1"
+              id="Layer"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 395.6 60"
+              style="enable-background:new 0 0 395.6 60;"
+              xml:space="preserve"
+              class="d_block footer_brand_svg"
+            >
+              <g>
+                <path
+                  class="st0"
+                  d="M58.7,10.8h-5.6v48.3H42.8l-25.1-33v22.1h5.6v10.8H0V48.3h5.6V10.8H0V0h17.6L41,30.7V10.8h-5.6V0h23.2 L58.7,10.8L58.7,10.8z M95.8,38c0,0.9,0,1.8-0.1,2.7H70.3c-0.7,8.2,2.4,10.6,7.1,10.6c3.9,0,6.9-2.6,6.9-6.6h11 c-0.3,7.2-4,15.4-18.5,15.4c-14.5,0-21.3-10.5-21.3-22.1c0-10.5,7-21.6,21-21.6C89.9,16.3,95.8,25.6,95.8,38 M159,27.3h-3.7 l-9.4,31.8h-12.5l-5.9-17.4l-5.3,17.4h-12.8L98.8,27.4h-3.7V16.6h22.1v10.7h-5.6l5.8,16.9l7.6-27.6h6.8l9.3,27.6l5-16.9h-5.6V16.6 H159L159,27.3L159,27.3z M174.5,27.8c0,1.5,1.2,2.5,5.4,3.9l6,2c5.5,1.8,12.1,5.9,12.1,13.4c0,8.8-6.6,13-14.7,13 c-6.5,0-11.5-3.2-12.9-4.6V59h-10.8V44.4h10.6c0.3,4.8,4.6,7.3,8.5,7.3c3.2,0,4.7-1.4,4.7-3c0-2-1.2-3.1-6.5-4.8l-5.3-1.8 c-5.4-1.7-11.4-5.7-11.4-12.8c0-8.7,7.7-13.1,14.3-13.1c6.8,0,10.1,1.9,11.8,3.8l0.1-3.3H197v13.3h-11.2c-0.2-3.6-3.7-5.2-7.2-5.2 C175.8,24.8,174.5,26.1,174.5,27.8 M262.8,27.3h-3.7l-9.4,31.8h-12.5l-5.9-17.4L226,59.1h-12.8l-10.6-31.7h-3.7V16.6h22.1v10.7  h-5.6l5.8,16.9l7.6-27.6h6.8l9.3,27.7l5-16.9h-5.6V16.6h18.5V27.3z M302,37.9c0,0.9,0,1.8-0.1,2.7h-25.4  c-0.7,8.2,2.4,10.6,7.1,10.6c3.9,0,6.9-2.6,6.9-6.6h11c-0.3,7.2-4,15.4-18.5,15.4c-14.5,0-21.3-10.5-21.3-22.1  c0-10.5,7-21.6,21-21.6C296.1,16.2,302,25.5,302,37.9 M343.9,37.8c0,0.9,0,1.8-0.1,2.7h-25.4c-0.7,8.2,2.4,10.6,7.1,10.6  c3.9,0,6.9-2.6,6.9-6.6h11c-0.3,7.2-4,15.4-18.5,15.4c-14.5,0-21.3-10.5-21.3-22.1c0-10.5,7-21.6,21-21.6 C338,16.1,343.9,25.4,343.9,37.8 M389.9,59h-12.8l-13.3-17.3l-4.3,3.2v3.4h3.8V59h-19.6V48.3h3.7V10.6h-5.6V0h17.8v33.9l8.9-6.5 h-5.6V16.6h23.9v10.8h-3.7l-9.3,7l10.7,13.9h5.6L389.9,59L389.9,59z M395.6,56.6c0,0.5-0.1,0.9-0.4,1.2c-0.2,0.4-0.5,0.7-0.9,0.9  c-0.4,0.2-0.8,0.4-1.3,0.4c-0.5,0-0.9-0.1-1.2-0.4c-0.4-0.2-0.7-0.5-0.9-0.9c-0.2-0.4-0.4-0.8-0.4-1.2c0-0.5,0.1-0.9,0.4-1.2  c0.2-0.4,0.5-0.7,0.9-0.9c0.4-0.2,0.8-0.4,1.2-0.4c0.5,0,0.9,0.1,1.3,0.4c0.4,0.2,0.7,0.5,0.9,0.9  C395.5,55.8,395.6,56.2,395.6,56.6 M394.6,58c0.4-0.4,0.6-0.9,0.6-1.4c0-0.6-0.2-1-0.6-1.4s-0.9-0.6-1.4-0.6s-1,0.2-1.4,0.6 c-0.4,0.4-0.6,0.9-0.6,1.4c0,0.6,0.2,1,0.6,1.4c0.4,0.4,0.9,0.6,1.4,0.6S394.2,58.4,394.6,58 M393.6,56.8c0.1,0.1,0.2,0.1,0.2,0.1 c0.1,0.1,0.2,0.2,0.2,0.3c0,0,0.2,0.3,0.4,0.8h-0.8c-0.3-0.5-0.4-0.8-0.5-0.9c-0.1-0.1-0.2-0.2-0.3-0.2c0,0-0.1,0-0.1,0v1.1h-0.6  v-2.6h1.2c0.4,0,0.6,0.1,0.7,0.2c0.2,0.2,0.2,0.3,0.2,0.6c0,0.2-0.1,0.4-0.2,0.5C393.9,56.6,393.8,56.7,393.6,56.8 M393.5,56.3  c0.1-0.1,0.1-0.2,0.1-0.3s-0.1-0.2-0.1-0.3c-0.1-0.1-0.2-0.1-0.4-0.1h-0.3v0.7h0.3C393.3,56.4,393.4,56.4,393.5,56.3 M318.4,33.5  h13.9c0-6-3.9-8.4-6.8-8.4C322.1,25.2,318.6,27.9,318.4,33.5 M276.5,33.6h13.9c0-6-3.9-8.4-6.8-8.4C280.3,25.2,276.8,28,276.5,33.6 M70.3,33.7h13.9c0-6-3.9-8.4-6.8-8.4C74.1,25.3,70.6,28.1,70.3,33.7"
+                ></path>
+              </g>
+            </svg>
+          </a>
+          <p class="copyright">© 2020 NEWSWEEK</p>
+        </div>
+        <ul class="footer_social align-items-end d_flex">
+          <li class="social_li1">
+            <a href="#" class="genericon genericon_lh ta_center d_block c_p">
+              <img src="images/fb.png" alt="k" width="20" height="20" />
+            </a>
+          </li>
+          <li class="social_li">
+            <a href="#" class="genericon genericon_lh ta_center d_block c_p">
+              <img src="images/fb.png" alt="k" width="20" height="20" />
+            </a>
+          </li>
+          <li class="social_li">
+            <a href="#" class="genericon genericon_lh ta_center d_block c_p">
+              <img src="images/fb.png" alt="k" width="20" height="20" />
+            </a>
+          </li>
+          <li class="social_li">
+            <a href="#" class="genericon genericon_lh ta_center d_block c_p">
+              <img src="images/fb.png" alt="k" width="20" height="20" />
+            </a>
+          </li>
+          <li class="social_li">
+            <a href="#" class="genericon genericon_lh ta_center d_block c_p">
+              <img src="images/fb.png" alt="k" width="20" height="20" />
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer_links d_flex">
+        <div class="d_flex">
+          <label class="footer_label">
+            <strong>Editions:</strong>
+          </label>
+          <ul>
+            <li class="leaf d_ib c_p">
+              <a href="#" class="leaf_a d_block">U.S Edition</a>
+            </li>
+            <li class="leaf d_ib c_p">
+              <a href="#" class="leaf_a d_block">日本</a>
+            </li>
+            <li class="leaf d_ib c_p">
+              <a href="#" class="leaf_a d_block">Pakistan</a>
+            </li>
+            <li class="leaf d_ib c_p">
+              <a href="#" class="leaf_a d_block">Polska</a>
+            </li>
+            <li class="leaf d_ib c_p last">
+              <a href="#" class="leaf_a d_block">România</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li class="leaf d_ib c_p">
+              <a href="#" class="leaf_a d_block">About Us</a>
+            </li>
+            <li class="leaf d_ib c_p">
+              <a href="#" class="leaf_a d_block">Corrections</a>
+            </li>
+            <li class="leaf d_ib c_p">
+              <a href="#" class="leaf_a d_block">Contact Us</a>
+            </li>
+            <li class="leaf d_ib c_p">
+              <a href="#" class="leaf_a d_block">Editorial Guidelines</a>
+            </li>
+            <li class="leaf d_ib c_p">
+              <a href="#" class="leaf_a d_block">Advertise</a>
+            </li>
+            <li class="leaf d_ib c_p">
+              <a href="#" class="leaf_a d_block">Copyright</a>
+            </li>
+            <li class="leaf d_ib c_p">
+              <a href="#" class="leaf_a d_block">Terms & Conditions</a>
+            </li>
+            <li class="leaf d_ib c_p">
+              <a href="#" class="leaf_a d_block">Privacy Policy</a>
+            </li>
+            <li class="leaf d_ib c_p">
+              <a href="#" class="leaf_a d_block">Cookie Policy</a>
+            </li>
+            <li class="leaf d_ib c_p">
+              <a href="#" class="leaf_a d_block">Terms of sale</a>
+            </li>
+            <li class="leaf d_ib c_p">
+              <a href="#" class="leaf_a d_block">Archive</a>
+            </li>
+            <li class="leaf d_ib c_p">
+              <a href="#" class="leaf_a d_block">Announcements</a>
+            </li>
+            <li class="leaf d_ib c_p">
+              <a href="#" class="leaf_a d_block">Consent Preferences</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

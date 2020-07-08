@@ -26,7 +26,7 @@ This project demonstrates the use of Bootstrap framework to build a responsive w
 
 ## Live Demo
 
-[Live Demo Link](https://adejam.github.io/newsweek-clone/.index.html)
+[Live Demo Link](https://adejam.github.io/newsweek-clone/index.html)
 
 ### Development (Running locally)
 

@@ -37,6 +37,16 @@
   .more_stories {
     margin-bottom: 20px;
   }
+
+  .sub_block{
+    text-align: center;
+  }
+
+  .s_img{
+    display: inline-block;
+    margin-bottom: 15px;
+    height: 160px;
+  }
 }
 
 @media (max-width: 640px) {

@@ -96,6 +96,7 @@ h5 {
 
 .sub_block {
   padding: 30px;
+  display: flex;
 }
 
 .s_info {
